@@ -23,6 +23,12 @@ network/**/*.h5
 __pycache__/
 *.pyc
 
+# Spike output
+raw_model/spike_output/
+
+# Audio
+*.wav
+
 # OS
 .DS_Store
 Thumbs.db
