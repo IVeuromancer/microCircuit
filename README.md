@@ -30,7 +30,7 @@ Custom NMODL mechanisms compiled for NEURON (in `raw_model/`):
 
 | Parameter | Value |
 |-----------|-------|
-| Simulator | NEURON (via BMTK BioNet) |
+| Simulator | NEURON (via BBP BioNet) |
 | Duration (`tstop`) | 3000 ms |
 | Time step (`dt`) | 0.1 ms |
 | Temperature | 34°C |
@@ -42,7 +42,7 @@ Custom NMODL mechanisms compiled for NEURON (in `raw_model/`):
 ```
 microCircuit/
 ├── Interneuron_model.ipynb     # Main notebook: build network, generate inputs, run simulation
-├── config.json                 # BMTK simulation config (SONATA format)
+├── config.json                 # BBP simulation config (SONATA format)
 ├── network/                    # Generated network files (SONATA H5 + CSV)
 │   ├── recurrent_network/      # TC ↔ IN recurrent connections
 │   └── source_input/           # Virtual Poisson input population
@@ -57,7 +57,7 @@ microCircuit/
 ## Requirements
 
 - Python 3.7+
-- [BMTK](https://github.com/AllenInstitute/bmtk) (`pip install bmtk`)
+- [BBP](https://www.epfl.ch/research/domains/bluebrain/) tools
 - [NEURON](https://neuron.yale.edu/neuron/download) (with Python interface)
 - numpy, pandas, matplotlib, h5py
 
@@ -67,7 +67,7 @@ Open and run `Interneuron_model.ipynb` in order:
 
 1. **Build the network** — generates `network/recurrent_network/` and `network/source_input/` SONATA files
 2. **Generate Poisson inputs** — creates `network/source_input/poission_input_spk_train.h5`
-3. **Run simulation** — executes BMTK BioNet with `config.json`; outputs written to `output/`
+3. **Run simulation** — executes BBP BioNet with `config.json`; outputs written to `output/`
 4. **Analyze results** — spike raster and membrane voltage plots
 
 > **Note:** NEURON mechanisms in `raw_model/` must be compiled with `nrnivmodl` before running the simulation.
