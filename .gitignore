@@ -12,6 +12,9 @@ output/cell_vars.h5
 # Network binary files
 network/**/*.h5
 
+# Jupyter notebooks
+*.ipynb
+
 # Jupyter checkpoints
 .ipynb_checkpoints/
 **/.ipynb_checkpoints/
