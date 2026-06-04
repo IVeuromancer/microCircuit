@@ -1,0 +1,18 @@
+list of synonyms: 
+
+mpirun, mpiexec
+-n, -np
+host, node
+rank, process
+pc.id() is rank from MPI_Comm_rank
+node, computer (each node/computer has it's own processors)
+processor/core, these constitute a cpu (but processor and cpu is sometimes used interchangeably)
+
+
+definitions: 
+processes: are the actual instance of a program you are trying to run.
+rank: MPI allows you to create logical groups of processes (pc.nhost()), and in each group, a process is identified by its rank. This is an integer in the range [0, N-1] where N is the size of the group
+
+By default, you have a single group that contains all your processes, and the intra-communicator MPI_COMM_WORLD that handles communication between them. This is sufficient for most applications, and does blur the distinction between process and rank a bit. The main thing to remember is that the rank of a process is always relative to a group. If you were to split your processes into two groups (e.g. one group to read input and another group to process data), then each process would now have two ranks: the one it originally had in MPI_COMM_WORLD, and one in its new group.
+
+
