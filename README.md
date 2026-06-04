@@ -1,5 +1,7 @@
 # microCircuit
 
+> Originally developed April–May 2020. Uploaded to GitHub in 2026.
+
 A biophysical microcircuit model of thalamocortical (TC) and interneuron (IN) cell populations, built with [Blue Brain Project](https://www.epfl.ch/research/domains/bluebrain/) tools and simulated in [NEURON](https://neuron.yale.edu/).
 
 ## Overview
