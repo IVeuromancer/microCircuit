@@ -1,6 +1,6 @@
 # microCircuit
 
-A biophysical microcircuit model of thalamocortical (TC) and interneuron (IN) cell populations, built with the [Brain Modeling Toolkit (BMTK)](https://github.com/AllenInstitute/bmtk) and simulated in [NEURON](https://neuron.yale.edu/).
+A biophysical microcircuit model of thalamocortical (TC) and interneuron (IN) cell populations, built with [Blue Brain Project](https://www.epfl.ch/research/domains/bluebrain/) tools and simulated in [NEURON](https://neuron.yale.edu/).
 
 ## Overview
 
