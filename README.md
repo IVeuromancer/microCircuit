@@ -30,7 +30,7 @@ Custom NMODL mechanisms compiled for NEURON (in `raw_model/`):
 
 | Parameter | Value |
 |-----------|-------|
-| Simulator | NEURON (via BBP BioNet) |
+| Simulator | NEURON |
 | Duration (`tstop`) | 3000 ms |
 | Time step (`dt`) | 0.1 ms |
 | Temperature | 34°C |
@@ -41,33 +41,31 @@ Custom NMODL mechanisms compiled for NEURON (in `raw_model/`):
 
 ```
 microCircuit/
-├── Interneuron_model.ipynb     # Main notebook: build network, generate inputs, run simulation
-├── config.json                 # BBP simulation config (SONATA format)
-├── network/                    # Generated network files (SONATA H5 + CSV)
-│   ├── recurrent_network/      # TC ↔ IN recurrent connections
-│   └── source_input/           # Virtual Poisson input population
-├── components/                 # Cell models, morphologies, synaptic params
-├── raw_model/                  # Legacy/raw NEURON files and compiled mechanisms
-│   ├── *.mod                   # NMODL mechanism source files
-│   ├── memodels/               # Morpho-electrical models and .asc morphology files
-│   └── history/                # Prior notebook versions
-└── output/                     # Simulation outputs (spikes.h5, cell_vars.h5)
+├── config.json                         # Simulation config (SONATA format)
+├── network/                            # Generated network files (SONATA H5 + CSV)
+│   ├── recurrent_network/              # TC ↔ IN recurrent connections
+│   └── source_input/                   # Poisson input population
+├── components/                         # Cell models, morphologies, synaptic params
+└── raw_model/                          # NEURON model files and compiled mechanisms
+    ├── *.mod                           # NMODL mechanism source files
+    └── memodels/
+        ├── mechanisms/
+        │   ├── cell.py                 # Cell model definitions
+        │   ├── subnetwork.py           # Subnetwork construction
+        │   ├── poisson.py              # Poisson spike-train generation
+        │   ├── diffrun.py              # Run differential IN network arrangement
+        │   └── samerun.py             # Run same IN network arrangement
+        └── morphologies_*/             # Neurolucida .asc morphology files
 ```
 
 ## Requirements
 
 - Python 3.7+
-- [BBP](https://www.epfl.ch/research/domains/bluebrain/) tools
 - [NEURON](https://neuron.yale.edu/neuron/download) (with Python interface)
-- numpy, pandas, matplotlib, h5py
+- numpy, matplotlib
 
 ## Usage
 
-Open and run `Interneuron_model.ipynb` in order:
-
-1. **Build the network** — generates `network/recurrent_network/` and `network/source_input/` SONATA files
-2. **Generate Poisson inputs** — creates `network/source_input/poission_input_spk_train.h5`
-3. **Run simulation** — executes BBP BioNet with `config.json`; outputs written to `output/`
-4. **Analyze results** — spike raster and membrane voltage plots
-
-> **Note:** NEURON mechanisms in `raw_model/` must be compiled with `nrnivmodl` before running the simulation.
+1. **Compile mechanisms** — run `nrnivmodl` in `raw_model/memodels/mechanisms/` to compile the `.mod` files
+2. **Generate Poisson inputs** — run `poisson.py` to create spike-train inputs
+3. **Run simulation** — run `diffrun.py` (differential IN arrangement) or `samerun.py` (same IN arrangement); outputs written to `spike_output/`
