@@ -37,7 +37,7 @@ Seven circuit variants test the role of specific synaptic motifs:
 
 ## Ion Channel Mechanisms
 
-Custom NMODL mechanisms in `V2/memodels/mechanisms/` and `V2/memodels/dAD_ltb/mechanisms/`:
+Custom NMODL mechanisms in `memodels/mechanisms/` and `memodels/dAD_ltb/mechanisms/`:
 
 | Mechanism | Description |
 |-----------|-------------|
@@ -67,33 +67,41 @@ Custom NMODL mechanisms in `V2/memodels/mechanisms/` and `V2/memodels/dAD_ltb/me
 ## Repository Structure
 
 ```
-scripts/                     # All Python simulation scripts
-├── cell_200619.py           # IN and TC cell model classes
-├── subnetwork_200619.py     # Subnetwork construction (TC + IN + synapses)
-├── poisson_whisker.py       # Whisker stimulus Poisson spike train generator
-├── convert_inputs.py        # Input format conversion
-├── runall_200719.py         # Main simulation runner (diff + same arrangements)
-├── diffsamerun_*.py         # Ablation variant scripts (7 total)
-├── subnetwork_200619_*.py   # Subnetwork variants for each ablation
-├── *_stp.py                 # Short-term plasticity variants
-├── *_heiberg.py             # Heiberg model variants
-└── stgen.py                 # Spike train generator utility
+scripts/                          # Python simulation scripts
+├── cell_200619.py                # IN and TC cell model classes
+├── subnetwork_200619.py          # Subnetwork construction (TC + IN + synapses)
+├── poisson_whisker.py            # Whisker stimulus Poisson spike train generator
+├── convert_inputs.py             # Input format conversion
+├── runall_200719.py              # Main simulation runner (diff + same arrangements)
+├── diffsamerun_*.py              # Ablation variant scripts (7 total)
+├── subnetwork_200619_*.py        # Subnetwork variants for each ablation
+├── *_stp.py                      # Short-term plasticity variants
+├── *_heiberg.py                  # Heiberg model variants
+└── stgen.py                      # Vendored NeuroTools spike train generator
 
 memodels/
-├── mechanisms/              # NMODL ion channel definitions (*.mod)
-│   └── history/             # Archived earlier script versions
-├── dAD_ltb/                 # BluePyOpt single-cell optimization pipeline
-│   ├── opt_model.py         # Optimization runner (genetic algorithm)
-│   ├── finals.py            # Post-optimization release finalization
-│   ├── pick_features.py     # Feature selection and weighting
-│   ├── analyse.py           # Post-run analysis
-│   ├── setup/               # Evaluator, protocols, templates
-│   ├── config/              # Features, params, protocols, recipes (JSON)
-│   └── mechanisms/          # Ion channel .mod files for optimization
-├── morphologies_IN_bAC/     # Interneuron Neurolucida morphologies (.asc)
-├── morphologies_TC_dAD_ltb/ # TC relay cell morphologies (.asc)
+├── mechanisms/                   # NMODL ion channel definitions (*.mod)
+│   └── history/                  # Archived earlier script versions
+├── dAD_ltb/                      # BluePyOpt single-cell optimization pipeline
+│   ├── opt_model.py              # Optimization runner (genetic algorithm)
+│   ├── finals.py                 # Post-optimization release finalization
+│   ├── pick_features.py          # Feature selection and weighting
+│   ├── analyse.py                # Post-run analysis
+│   ├── setup/                    # Evaluator, protocols, templates
+│   ├── config/                   # Features, params, protocols, recipes (JSON)
+│   └── mechanisms/               # Ion channel .mod files for optimization
+├── morphologies_IN_bAC/          # Interneuron Neurolucida morphologies (.asc)
+├── morphologies_TC_dAD_ltb/      # TC relay cell morphologies (.asc)
 ├── morphologies_TC_dNAD_ltb/
-└── bAC_IN_legacy.hoc        # NEURON HOC cell template
+└── bAC_IN_legacy.hoc             # NEURON HOC cell template
+
+assets/                           # Supplementary files
+├── README.pdf                    # PDF version of documentation
+└── interneurondendrites*.txt     # Interneuron dendrite reference data
+
+spike_input/                      # Poisson spike train inputs (gitignored, placeholder only)
+spike_output/                     # Simulation outputs (gitignored, placeholder only)
+figures/                          # Output figures (gitignored, placeholder only)
 ```
 
 ---
@@ -102,6 +110,7 @@ memodels/
 
 - Python 3.7+
 - [NEURON](https://neuron.yale.edu/neuron/download) (with Python interface)
+- [NeuroTools](https://github.com/NeuralEnsemble/NeuroTools) (for spike train generation)
 - [BluePyOpt](https://github.com/BlueBrain/BluePyOpt) (for `dAD_ltb` optimization only)
 - numpy, matplotlib
 
