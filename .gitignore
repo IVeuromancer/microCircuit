@@ -29,6 +29,9 @@ V3/
 **/logs/
 **/runlog.json
 
+# Figures
+figures/
+
 # Audio
 *.wav
 
