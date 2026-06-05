@@ -22,9 +22,8 @@ gamma_hazard - Compute the hazard function for a gamma process with parameters a
 import sys
 import os
 from NeuroTools import check_dependency
-sys.path.append('C:/Users/yijan/anaconda3/Lib/site-packages/NeuroTools')
-import signals
-from signals import SpikeTrain, AnalogSignal
+from NeuroTools import signals
+from NeuroTools.signals import SpikeTrain, AnalogSignal
 from numpy import array, log
 import numpy
 
