@@ -12,8 +12,10 @@ V3/
 **/x86_64/
 
 # Spike train data (large binary datasets — store separately)
-**/spike_input/
-**/spike_output/
+spike_input/*
+!spike_input/.gitkeep
+spike_output/*
+!spike_output/.gitkeep
 **/*.npy
 
 # Jupyter notebooks
@@ -30,7 +32,8 @@ V3/
 **/runlog.json
 
 # Figures
-figures/
+figures/*
+!figures/.gitkeep
 
 # Audio
 *.wav
