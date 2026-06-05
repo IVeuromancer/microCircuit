@@ -1,0 +1,50 @@
+{
+  "Step_150_hyp": {
+    "type": "StepProtocol", 
+    "stimuli": {
+      "step": {"delay": 800.0, "amp": 0.039434, "thresh_perc": 151.5089, "duration": 1350.0, "totduration": 2400.0},
+      "holding": {"delay": 0.0, "amp": -0.033582, "duration": 2400.0, "totduration": 2400.0}
+    }
+  }, 
+  "Step_200_hyp": {
+    "type": "StepProtocol", 
+    "stimuli": {
+      "step": {"delay": 800.0, "amp": 0.052219, "thresh_perc": 199.8467, "duration": 1350.0, "totduration": 2400.0},
+      "holding": {"delay": 0.0, "amp": -0.032685, "duration": 2400.0, "totduration": 2400.0}
+    }
+  }, 
+  "Step_250_hyp": {
+    "type": "StepProtocol", 
+    "stimuli": {
+      "step": {"delay": 800.0, "amp": 0.054411, "thresh_perc": 244.6567, "duration": 1350.0, "totduration": 2400.0},
+      "holding": {"delay": 0.0, "amp": -0.032546, "duration": 2400.0, "totduration": 2400.0}
+    }
+  }, 
+  "APWaveform_225_hyp": {
+    "type": "StepProtocol", 
+    "stimuli": {
+      "step": {"delay": 800.0, "amp": 0.047148, "thresh_perc": 213.0983, "duration": 225.0, "totduration": 1275.0},
+      "holding": {"delay": 0.0, "amp": -0.030711, "duration": 1275.0, "totduration": 1275.0}
+    }
+  }, 
+  "Rin_hyp": {
+    "type": "StepProtocol", 
+    "stimuli": {
+      "step": {"delay": 800.0, "amp": -0.010629, "thresh_perc": -40.5253, "duration": 3000.0, "totduration": 4050.0},
+      "holding": {"delay": 0.0, "amp": -0.031334, "duration": 4050.0, "totduration": 4050.0}
+    }
+  }, 
+  "RMP": {
+    "type": "StepProtocol", 
+    "stimuli": {
+      "step": {"delay": 300, "amp": 0, "duration": 900.0, "totduration": 1200.0}
+    }
+  }, 
+  "IV_-120_hyp": {
+    "type": "StepProtocol", 
+    "stimuli": {
+      "step": {"delay": 800.0, "amp": -0.025672, "thresh_perc": -116.8993, "duration": 3000.0, "totduration": 4050.0},
+      "holding": {"delay": 0.0, "amp": -0.031985, "duration": 4050.0, "totduration": 4050.0}
+    }
+  }
+}

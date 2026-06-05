@@ -1,2 +1,0 @@
-edge_type_id target_query source_query distance_range dynamics_params model_template syn_weight target_sections delay
-100 ei=='e'&model_type=='biophysical' ei=='i' "[0.0, 1e+20]" GABA_InhToExc.json exp2syn 0.0004 "['somatic', 'basal']" 2.0

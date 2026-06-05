@@ -1,73 +1,148 @@
 # microCircuit
 
-> Originally developed April–May 2020. Uploaded to GitHub in 2026.
+> Originally developed May–September 2020. Uploaded to GitHub in 2026.
 
-A biophysical microcircuit model of thalamocortical (TC) and interneuron (IN) cell populations, built with [Blue Brain Project](https://www.epfl.ch/research/domains/bluebrain/) tools and simulated in [NEURON](https://neuron.yale.edu/).
+Biophysical model of a thalamic microcircuit consisting of thalamocortical relay (TC) and local interneuron (IN) cell populations, driven by whisker stimulus-derived Poisson spike trains. Built with [Blue Brain Project](https://www.epfl.ch/research/domains/bluebrain/) tools and simulated in [NEURON](https://neuron.yale.edu/).
 
-## Overview
+The core experiment tests two network arrangements — **differential** (inputs routed to different INs) vs. **same-opponent** (inputs to the same IN) — and includes a set of ablation variants to isolate the contribution of specific synaptic motifs.
 
-The network consists of:
-- **TC neurons** (excitatory) — thalamocortical relay cells with detailed biophysical morphology
-- **IN neurons** (inhibitory) — interneurons providing feedback inhibition to TC cells
-- **Virtual input population** — 25 Poisson spike-train sources driving both TC and IN populations
+---
 
-Connectivity is distance-dependent (Euclidean separation threshold). Synaptic dynamics use `exp2syn` (dual-exponential) with GABA (IN→TC) and AMPA (input→TC, input→IN) kinetics.
+## Network Architecture
+
+Each subnetwork contains:
+- **1 IN** (inhibitory interneuron) — bAC morpho-electrical type, dendro-dendritic output synapses
+- **4 TC cells** (excitatory thalamocortical relay) — positioned radially around the IN
+- **External Br inputs** — two whisker-tuned Poisson spike train sources (Branch 1, Branch 2)
+
+Two subnetworks are coupled via IN–IN synapses (axonal and dendritic), creating either:
+- `diffrun` — Br1 → subnetwork 1 IN, Br2 → subnetwork 2 IN (differential arrangement)
+- `samerun` — Br1 + Br2 both → same IN (same-opponent arrangement)
+
+### Ablation Variants
+
+Seven circuit variants test the role of specific synaptic motifs:
+
+| Script | Removed motif |
+|--------|---------------|
+| `diffsamerun_no_triadic.py` | Triadic (dendro-dendritic) synapses |
+| `diffsamerun_no_axonal.py` | Axonal synapses |
+| `diffsamerun_no_distriadic.py` | Distal triadic synapses |
+| `diffsamerun_no_disaxonal.py` | Distal axonal synapses |
+| `diffsamerun_no_triadic_no_axonal.py` | Both triadic and axonal |
+| `diffsamerun_no_distriadic_no_disaxonal.py` | Both distal triadic and distal axonal |
+| `diffsamerun_no_inhib.py` | All inhibition |
+
+---
 
 ## Ion Channel Mechanisms
 
-Custom NMODL mechanisms compiled for NEURON (in `raw_model/`):
+Custom NMODL mechanisms in `V2/memodels/mechanisms/` and `V2/memodels/dAD_ltb/mechanisms/`:
 
 | Mechanism | Description |
 |-----------|-------------|
 | `TC_HH` | Hodgkin-Huxley Na/K channels |
-| `TC_iT_Des98` / `TC_ITGHK_Des98` | T-type Ca²⁺ current (Destexhe 1998) |
-| `TC_Ih_Bud97` | Hyperpolarization-activated (Ih) current (Budde 1997) |
+| `TC_ITGHK_Des98` | T-type Ca²⁺ current (Destexhe 1998) |
+| `TC_Ih_Bud97` | Hyperpolarization-activated Ih current (Budde 1997) |
 | `TC_Nap_Et2` | Persistent Na⁺ current |
 | `TC_iA` | A-type K⁺ current |
 | `TC_iL` | L-type Ca²⁺ current |
 | `TC_cadecay` | Ca²⁺ decay dynamics |
-| `SK_E2` | SK-type Ca²⁺-activated K⁺ channel |
+| `SK_E2` | Ca²⁺-activated K⁺ channel |
+
+---
 
 ## Simulation Parameters
 
 | Parameter | Value |
 |-----------|-------|
 | Simulator | NEURON |
-| Duration (`tstop`) | 3000 ms |
-| Time step (`dt`) | 0.1 ms |
+| Duration | 1000 ms |
 | Temperature | 34°C |
-| Resting potential | −80 mV |
-| Spike threshold | −15 mV |
+| Resting potential | −78 mV |
+| Spike threshold | −29 mV (cell) / −34 mV (release) |
+
+---
 
 ## Repository Structure
 
 ```
-microCircuit/
-├── config.json                         # Simulation config (SONATA format)
-├── network/                            # Generated network files (SONATA H5 + CSV)
-│   ├── recurrent_network/              # TC ↔ IN recurrent connections
-│   └── source_input/                   # Poisson input population
-├── components/                         # Cell models, morphologies, synaptic params
-└── raw_model/                          # NEURON model files and compiled mechanisms
-    ├── *.mod                           # NMODL mechanism source files
-    └── memodels/
-        ├── mechanisms/
-        │   ├── cell.py                 # Cell model definitions
-        │   ├── subnetwork.py           # Subnetwork construction
-        │   ├── poisson.py              # Poisson spike-train generation
-        │   ├── diffrun.py              # Run differential IN network arrangement
-        │   └── samerun.py             # Run same IN network arrangement
-        └── morphologies_*/             # Neurolucida .asc morphology files
+memodels/
+├── mechanisms/              # Core simulation code + NMODL mechanisms
+│   ├── cell_200619.py       # IN and TC cell model classes
+│   ├── subnetwork_200619.py # Subnetwork construction (TC + IN + synapses)
+│   ├── poisson_whisker.py   # Whisker stimulus Poisson spike train generator
+│   ├── convert_inputs.py    # Input format conversion
+│   ├── runall_200719.py     # Main simulation runner (diff + same arrangements)
+│   ├── diffsamerun_*.py     # Ablation variant scripts (7 total)
+│   ├── subnetwork_200619_*.py  # Subnetwork variants for each ablation
+│   ├── *_stp.py             # Short-term plasticity variants
+│   ├── *_heiberg.py         # Heiberg model variants
+│   ├── *.mod                # NMODL ion channel definitions
+│   └── history/             # Archived earlier versions of scripts
+│
+├── dAD_ltb/                 # BluePyOpt single-cell optimization pipeline
+│   ├── opt_model.py         # Optimization runner (genetic algorithm)
+│   ├── finals.py            # Post-optimization release finalization
+│   ├── pick_features.py     # Feature selection and weighting
+│   ├── analyse.py           # Post-run analysis
+│   ├── setup/               # Evaluator, protocols, templates
+│   ├── config/              # Features, params, protocols, recipes (JSON)
+│   ├── mechanisms/          # Ion channel .mod files for optimization
+│   └── run/                 # Optimization run outputs
+│
+├── morphologies_IN_bAC/     # Interneuron Neurolucida morphologies (.asc)
+├── morphologies_TC_dAD_ltb/ # TC relay cell morphologies (.asc)
+├── morphologies_TC_dNAD_ltb/
+└── bAC_IN_legacy.hoc        # NEURON HOC cell template
+
+figures/                     # SVG output figures
+stgen.py                     # Spike train generator utility
 ```
+
+---
 
 ## Requirements
 
 - Python 3.7+
 - [NEURON](https://neuron.yale.edu/neuron/download) (with Python interface)
+- [BluePyOpt](https://github.com/BlueBrain/BluePyOpt) (for `dAD_ltb` optimization only)
 - numpy, matplotlib
+
+---
 
 ## Usage
 
-1. **Compile mechanisms** — run `nrnivmodl` in `raw_model/memodels/mechanisms/` to compile the `.mod` files
-2. **Generate Poisson inputs** — run `poisson.py` to create spike-train inputs
-3. **Run simulation** — run `diffrun.py` (differential IN arrangement) or `samerun.py` (same IN arrangement); outputs written to `spike_output/`
+### 1. Compile mechanisms
+
+```bash
+cd memodels/mechanisms
+nrnivmodl
+```
+
+### 2. Generate whisker stimulus inputs
+
+```bash
+python poisson_whisker.py
+```
+
+Generates Poisson spike trains for 32 stimulus diameters and saves them to `spike_input/`.
+
+### 3. Run simulation
+
+```bash
+# Main differential vs. same-opponent experiment
+python runall_200719.py
+
+# Or run an ablation variant, e.g.:
+python diffsamerun_no_triadic.py
+```
+
+Outputs saved to `spike_output/`.
+
+### 4. Single-cell optimization (optional)
+
+```bash
+cd memodels/dAD_ltb
+python opt_model.py --etype dAD_ltb
+```

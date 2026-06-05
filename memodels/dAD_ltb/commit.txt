@@ -1,0 +1,9 @@
+Taken params from b2bfffe, all config, setup should be the same
+
+Vthr in eval.py set to -30 because there may be very small spks in burst
+
+Added feature AP2_AP1_amp_diff in burst (2nd amp looks too small, maybe related also to AHP after burst)
+Changed AP_width to AP_duration_half_width (AP_width high error and depends of defined vthr)
+
+
+ 

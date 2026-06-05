@@ -1,5 +1,0 @@
-XSym
-0020
-148a6e2978039ef2840041a4e44c8c90
-../modfiles/NaTa.mod
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           

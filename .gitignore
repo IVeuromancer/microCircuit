@@ -1,30 +1,33 @@
-# Compiled NEURON mechanisms
-*.o
-*.c
-*.dll
-nrnmech.dll
+# Old version
+V3/
 
-# Simulation output
-output/spikes.h5
-output/spikes.csv
-output/cell_vars.h5
+# Compiled NEURON mechanisms (regenerated with nrnivmodl)
+**/*.o
+**/*.c
+**/*.lo
+**/*.la
+**/*.so
+**/*.dll
+**/nrnmech.dll
+**/x86_64/
 
-# Network binary files
-network/**/*.h5
+# Spike train data (large binary datasets — store separately)
+**/spike_input/
+**/spike_output/
+**/*.npy
 
 # Jupyter notebooks
 *.ipynb
-
-# Jupyter checkpoints
-.ipynb_checkpoints/
 **/.ipynb_checkpoints/
 
 # Python cache
-__pycache__/
+**/__pycache__/
 *.pyc
+*.pyo
 
-# Spike output
-raw_model/spike_output/
+# Logs and run output
+**/logs/
+**/runlog.json
 
 # Audio
 *.wav

@@ -1,0 +1,20 @@
+{
+    "bNAC_VPLin_legacy": {
+        "mm_recipe": "bNAC_VPLin",
+        "etype": "bNAC",
+	"mtype": "VPL_IN",
+        "layer": ["VPL"]
+    },
+    "bAC_TC_VPL_legacy": {
+        "mm_recipe": "bAC_TC_VPL",
+        "etype": "bAC",
+	"mtype": "VPL_TC",
+        "layer": ["VPL"]
+    },
+    "bNoscNAC_legacy": {
+        "mm_recipe": "bNoscNAC",
+        "etype": "bNoscNAC",
+	"mtype": "Rt_RC",
+        "layer": ["Rt"]
+    }
+}

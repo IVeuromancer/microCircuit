@@ -1,0 +1,44 @@
+{
+  "RMP": {
+    "soma.v": [
+      {"feature": "steady_state_voltage_stimend", "val": [-79.8388, 4.999], "n": 21, "strict_stim": true},
+      {"feature": "Spikecount_stimint", "val": [1.6032, 5.4137], "n": 21, "strict_stim": true}
+    ]
+  }, 
+
+  "Rin_dep": {
+    "soma.v": [
+      {"feature": "voltage_base", "val": [-64.4999, 1.7128], "n": 16, "strict_stim": true},
+      {"feature": "ohmic_input_resistance_vb_ssse", "val": [138.2357, 50.8524], "n": 16, "strict_stim": true}
+    ]
+  }, 
+  "RinHoldCurrent_dep": {
+    "soma.v": [
+      {"feature": "bpo_holding_current_dep", "val": [0.142, 0.0612]}
+    ]
+  }, 
+  "ThresholdDetection_dep": {
+    "soma.v": [
+      {"feature": "bpo_threshold_current_dep", "val": [0.0673, 0.0335]}
+    ]
+  },
+
+  "Rin_hyp": {
+    "soma.v": [
+      {"feature": "voltage_base", "val": [-88.471, 1.263], "n": 23, "strict_stim": true},
+      {"feature": "ohmic_input_resistance_vb_ssse", "val": [117.3647, 53.132], "n": 23, "strict_stim": true}
+    ]
+  }, 
+  "RinHoldCurrent_hyp": {
+    "soma.v": [
+      {"feature": "bpo_holding_current_hyp", "val": [-0.1069, 0.066]}
+    ]
+  }, 
+"ThresholdDetection_hyp": {
+    "soma.v": [
+      {"feature": "bpo_threshold_current_hyp", "val": [0.0708, 0.0392]}
+    ]
+
+  }
+
+}

@@ -1,0 +1,14 @@
+{
+  "Ramp": {
+    "type": "RampThresholdProtocol", 
+    "stimuli": {
+      "ramp": {"delay": 800.0, "amp": null, "thresh_perc_start": 0.0, "thresh_perc_end": 300.0, "duration": 4000.0, "totduration": 4800.0}
+    }
+  }, 
+  "Ramp_hyp": {
+    "type": "RampThresholdProtocol", 
+    "stimuli": {
+      "ramp": {"delay": 800.0, "amp": null, "thresh_perc_start": 0.0, "thresh_perc_end": 300.0, "duration": 1333.0, "totduration": 2133.0}
+    }
+  } 
+}

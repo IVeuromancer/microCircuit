@@ -1,0 +1,71 @@
+{
+  "Main": {
+    "type": "RatSSCxMainProtocol", 
+    "rmp_score_threshold": 3, 
+    "rin_score_threshold": 3, 
+    "other_protocols": [
+      "Ramp",
+      "Ramp_hyp"
+    ], 
+    "pre_protocols": [], 
+    "preprot_score_threshold": 3
+  }, 
+  "RinHoldcurrent_hyp": {
+    "type": "RatSSCxRinHoldcurrentProtocol", 
+    "holdi_precision": 0.1, 
+    "holdi_max_depth": 14, 
+    "holdi_estimate_multiplier": 1
+  }, 
+  "ThresholdDetection_hyp": {
+    "type": "RatSSCxThresholdDetectionProtocol", 
+    "step_template": {
+      "type": "StepProtocol",
+      "stimuli": {"step": {"delay": 800.0, "amp": null, "duration": 1800.0, "totduration": 1800.0}, "holding": {"delay": 0.0, "amp": null, "duration": 1800.0, "totduration": 1800.0}}
+    }
+  }, 
+  "RinHoldcurrent_dep": {
+    "type": "RatSSCxRinHoldcurrentProtocol", 
+    "holdi_precision": 0.1, 
+    "holdi_max_depth": 14, 
+    "holdi_estimate_multiplier": 1
+  }, 
+  "ThresholdDetection_dep": {
+    "type": "RatSSCxThresholdDetectionProtocol", 
+    "step_template": {
+      "type": "StepProtocol",
+      "stimuli": {"step": {"delay": 800.0, "amp": null, "duration": 1800.0, "totduration": 1800.0}, "holding": {"delay": 0.0, "amp": null, "duration": 1800.0, "totduration": 1800.0}}
+    }
+  }, 
+  "Ramp": {
+    "type": "RampThresholdProtocol", 
+    "stimuli": {
+      "ramp": {"thresh_perc_start": 0.0, "thresh_perc_end": 300.0, "totduration": 4800, "delay": 800.0, "duration": 4000, "amp": null}
+    }
+  }, 
+  "Ramp_hyp": {
+    "type": "RampThresholdProtocol", 
+    "stimuli": {
+      "ramp": {"thresh_perc_start": 0.0, "thresh_perc_end": 300.0, "totduration": 2050, "delay": 800.0, "duration": 1250, "amp": null}
+    }
+  }, 
+  "Rin_dep": {
+    "type": "StepProtocol", 
+    "stimuli": {
+      "step": {"delay": 800.0, "amp": -0.015773, "thresh_perc": -41.1908, "duration": 3000.0, "totduration": 4050.0},
+      "holding": {"delay": 0.0, "amp": null, "duration": 4050.0, "totduration": 4050.0}
+    }
+  }, 
+  "Rin_hyp": {
+    "type": "StepProtocol", 
+    "stimuli": {
+      "step": {"delay": 800.0, "amp": -0.032805, "thresh_perc": -39.4414, "duration": 3000.0, "totduration": 4050.0},
+      "holding": {"delay": 0.0, "amp": null, "duration": 4050.0, "totduration": 4050.0}
+    }
+  }, 
+  "RMP": {
+    "type": "StepProtocol", 
+    "stimuli": {
+      "step": {"delay": 300, "amp": 0, "duration": 900.0, "totduration": 1200.0}
+    }
+  }
+}

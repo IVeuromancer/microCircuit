@@ -1,0 +1,59 @@
+{
+  "Step_150": {
+    "type": "StepProtocol", 
+    "stimuli": {
+      "step": {"delay": 800, "amp": 0.029035, "thresh_perc": 145.4807, "duration": 3375.0, "totduration": 4425.0},
+      "holding": {"delay": 0.0, "amp": 0.129856, "duration": 4425.0, "totduration": 4425.0}
+    }
+  }, 
+  "Step_200": {
+    "type": "StepProtocol", 
+    "stimuli": {
+      "step": {"delay": 800, "amp": 0.039054, "thresh_perc": 195.9295, "duration": 3375.0, "totduration": 4425.0},
+      "holding": {"delay": 0.0, "amp": 0.121269, "duration": 4425.0, "totduration": 4425.0}
+    }
+  }, 
+  "Step_250": {
+    "type": "StepProtocol", 
+    "stimuli": {
+      "step": {"delay": 800, "amp": 0.049942, "thresh_perc": 251.0833, "duration": 3375.0, "totduration": 4425.0},
+      "holding": {"delay": 0.0, "amp": 0.123007, "duration": 4425.0, "totduration": 4425.0}
+    }
+  }, 
+  "Step_150_hyp": {
+    "type": "StepProtocol", 
+    "stimuli": {
+      "step": {"delay": 800, "amp": 0.102013, "thresh_perc": 153.0596, "duration": 1350.0, "totduration": 2400.0},
+      "holding": {"delay": 0.0, "amp": 0.013237, "duration": 2400.0, "totduration": 2400.0}
+    }
+  }, 
+  "IV_-140": {
+    "type": "StepProtocol", 
+    "stimuli": {
+      "step": {"delay": 800, "amp": -0.027078, "thresh_perc": -136.8054, "duration": 3000.0, "totduration": 4050.0},
+      "holding": {"delay": 0.0, "amp": 0.11755, "duration": 4050.0, "totduration": 4050.0}
+    }
+  }, 
+  "RMP": {
+    "type": "StepProtocol", 
+    "stimuli": {
+      "step": {"delay": 300, "amp": 0, "duration": 950.0, "totduration": 1200.0}
+    }
+  },
+
+   "hold_dep": {
+      "type": "StepProtocol",  
+      "stimuli": {
+       "step": {"delay": 300.0, "amp": 0.0, "thresh_perc": 0.0, "duration": 900.0, "totduration": 1200.0},
+       "holding": {"delay": 0.0, "amp": 0.123007, "duration": 1200.0, "totduration": 1200.0}
+      }
+    },
+    "hold_hyp": {
+      "type": "StepProtocol",  
+      "stimuli": {
+       "step": {"delay": 300.0, "amp": 0.0, "thresh_perc": 0.0, "duration": 900.0, "totduration": 1200.0},
+       "holding": {"delay": 0.0, "amp": 0.013237, "duration": 1200.0, "totduration": 1200.0}
+      }
+    }
+
+}

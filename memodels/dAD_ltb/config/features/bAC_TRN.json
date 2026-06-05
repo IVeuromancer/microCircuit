@@ -1,0 +1,111 @@
+{
+  "Step_150": {
+    "soma.v": [
+      {"feature": "voltage_base", "val": [-62.8235, 2.1124], "n": 7, "strict_stim": true},
+      {"feature": "voltage_after_stim", "val": [-62.1124, 3.0026], "n": 7, "strict_stim": true},
+      {"feature": "AP_amplitude", "val": [33.7633, 7.9148], "n": 5, "strict_stim": true},
+      {"feature": "AHP_depth_abs", "val": [-66.8315, 2.973], "n": 5, "strict_stim": true},
+      {"feature": "AP_width", "val": [0.6943, 0.2284], "n": 5, "strict_stim": true},
+      {"feature": "mean_frequency", "val": [10.4785, 1.5256], "n": 5, "strict_stim": true},
+      {"feature": "time_to_first_spike", "val": [59.875, 17.9029], "n": 5, "strict_stim": true},
+      {"feature": "inv_first_ISI", "val": [8.8228, 5.7331], "n": 7, "strict_stim": true},
+      {"feature": "inv_second_ISI", "val": [8.603, 5.6372], "n": 7, "strict_stim": true},
+      {"feature": "inv_third_ISI", "val": [8.057, 5.2795], "n": 7, "strict_stim": true},
+      {"feature": "inv_fourth_ISI", "val": [7.4181, 5.126], "n": 7, "strict_stim": true},
+      {"feature": "inv_fifth_ISI", "val": [6.9141, 4.8246], "n": 7, "strict_stim": true},
+      {"feature": "inv_last_ISI", "val": [6.3907, 4.4769], "n": 7, "strict_stim": true},
+      {"feature": "Spikecount", "val": [9.2381, 6.2073], "n": 7, "strict_stim": true}
+    ]
+  }, 
+  "Step_200": {
+    "soma.v": [
+      {"feature": "voltage_base", "val": [-62.2213, 1.9015], "n": 6, "strict_stim": true},
+      {"feature": "voltage_after_stim", "val": [-61.3063, 2.6823], "n": 6, "strict_stim": true},
+      {"feature": "AP_amplitude", "val": [33.4127, 7.3342], "n": 6, "strict_stim": true},
+      {"feature": "AHP_depth_abs", "val": [-65.1077, 3.096], "n": 6, "strict_stim": true},
+      {"feature": "AP_width", "val": [0.6834, 0.2164], "n": 6, "strict_stim": true},
+      {"feature": "mean_frequency", "val": [10.9522, 5.3181], "n": 6, "strict_stim": true},
+      {"feature": "time_to_first_spike", "val": [48.4, 38.6256], "n": 6, "strict_stim": true},
+      {"feature": "inv_first_ISI", "val": [13.0898, 7.1971], "n": 6, "strict_stim": true},
+      {"feature": "inv_second_ISI", "val": [11.5351, 6.3565], "n": 6, "strict_stim": true},
+      {"feature": "inv_third_ISI", "val": [11.1656, 6.6185], "n": 6, "strict_stim": true},
+      {"feature": "inv_fourth_ISI", "val": [10.9463, 6.4355], "n": 6, "strict_stim": true},
+      {"feature": "inv_fifth_ISI", "val": [11.2914, 6.461], "n": 6, "strict_stim": true},
+      {"feature": "inv_last_ISI", "val": [9.7094, 5.0866], "n": 6, "strict_stim": true},
+      {"feature": "Spikecount", "val": [13.5, 7.5056], "n": 6, "strict_stim": true}
+    ]
+  }, 
+  "Step_300": {
+    "soma.v": [
+      {"feature": "voltage_base", "val": [-62.7611, 0.3662], "n": 5, "strict_stim": true},
+      {"feature": "voltage_after_stim", "val": [-61.9813, 2.602], "n": 5, "strict_stim": true},
+      {"feature": "AP_amplitude", "val": [33.9079, 8.6552], "n": 5, "strict_stim": true},
+      {"feature": "AHP_depth_abs", "val": [-64.8256, 3.5967], "n": 5, "strict_stim": true},
+      {"feature": "AP_width", "val": [0.6561, 0.1989], "n": 5, "strict_stim": true},
+      {"feature": "mean_frequency", "val": [16.1486, 5.0052], "n": 5, "strict_stim": true},
+      {"feature": "time_to_first_spike", "val": [22.12, 10.1107], "n": 5, "strict_stim": true},
+      {"feature": "inv_first_ISI", "val": [21.1073, 5.8409], "n": 5, "strict_stim": true},
+      {"feature": "inv_second_ISI", "val": [18.5769, 5.8976], "n": 5, "strict_stim": true},
+      {"feature": "inv_third_ISI", "val": [17.9271, 5.4538], "n": 5, "strict_stim": true},
+      {"feature": "inv_fourth_ISI", "val": [16.3356, 5.9421], "n": 5, "strict_stim": true},
+      {"feature": "inv_fifth_ISI", "val": [16.4595, 5.5024], "n": 5, "strict_stim": true},
+      {"feature": "inv_last_ISI", "val": [14.7743, 4.6362], "n": 5, "strict_stim": true},
+      {"feature": "Spikecount", "val": [21.45, 6.6415], "n": 5, "strict_stim": true}
+    ]
+  }, 
+  "Step_200_hyp": {
+    "soma.v": [
+      {"feature": "voltage_base", "val": [-83.2886, 2.2976], "n": 6, "strict_stim": true},
+      {"feature": "voltage_after_stim", "val": [-79.4384, 7.312], "n": 6, "strict_stim": true},
+      {"feature": "min_voltage_between_spikes", "val": [-68.9365, 3.3696], "n": 6, "strict_stim": true},
+      {"feature": "AP1_amp", "val": [45.4829, 7.0922], "n": 6, "strict_stim": true},
+      {"feature": "AHP1_depth_from_peak", "val": [56.3444, 7.0188], "n": 6, "strict_stim": true},
+      {"feature": "AHP2_depth_from_peak", "val": [52.9219, 6.7255], "n": 6, "strict_stim": true},
+      {"feature": "time_to_first_spike", "val": [46.2583, 19.2525], "n": 6, "strict_stim": true},
+      {"feature": "time_to_last_spike", "val": [1029.2792, 248.502], "n": 6, "strict_stim": true},
+      {"feature": "inv_first_ISI", "val": [169.8217, 50.3699], "n": 6, "strict_stim": true},
+      {"feature": "inv_second_ISI", "val": [196.572, 56.5749], "n": 6, "strict_stim": true},
+      {"feature": "inv_third_ISI", "val": [146.1279, 90.8583], "n": 6, "strict_stim": true},
+      {"feature": "inv_fourth_ISI", "val": [62.4195, 56.8922], "n": 6, "strict_stim": true},
+      {"feature": "inv_fifth_ISI", "val": [24.2673, 26.6509], "n": 6, "strict_stim": true},
+      {"feature": "Spikecount", "val": [14.7778, 5.0136], "n": 6, "strict_stim": true}
+    ]
+  }, 
+  "Rin": {
+    "soma.v": [
+      {"feature": "voltage_base", "val": [-64.7906, 0.9879], "n": 7, "strict_stim": true},
+      {"feature": "ohmic_input_resistance_vb_ssse", "val": [238.6838, 113.8967], "n": 7, "strict_stim": true}
+    ]
+  }, 
+  "RMP": {
+    "soma.v": [
+      {"feature": "voltage_base", "val": [-80.5269, 7.0617], "n": 5, "strict_stim": true},
+      {"feature": "Spikecount", "val": [0.0, 0.001], "n": 5, "strict_stim": true}
+    ]
+  }, 
+  "IV_-120": {
+    "soma.v": [
+      {"feature": "sag_amplitude", "val": [0.8284, 0.1934], "n": 5, "strict_stim": true}
+    ]
+  }, 
+  "hold_dep": {
+    "soma.v": [
+      {"feature": "Spikecount_stimint", "val": [0.0612, 0.15], "n": 7, "strict_stim": true}
+    ]
+  }, 
+  "hold_hyp": {
+    "soma.v": [
+      {"feature": "Spikecount_stimint", "val": [0.0, 0.001], "n": 7, "strict_stim": true}
+    ]
+  }, 
+  "RinHoldCurrent": {
+    "soma.v": [
+      {"feature": "bpo_holding_current", "val": [0.1776, 0.098]}
+    ]
+  }, 
+  "Threshold": {
+    "soma.v": [
+      {"feature": "bpo_threshold_current", "val": [0.0414, 0.0282]}
+    ]
+  }
+}

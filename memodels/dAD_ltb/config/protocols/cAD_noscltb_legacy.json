@@ -1,0 +1,64 @@
+{
+  "Step_150": {
+    "type": "StepProtocol", 
+    "stimuli": {
+      "step": {"delay": 800.0, "amp": 0.044884, "thresh_perc": 150.3955, "duration": 1350.0, "totduration": 2400.0},
+      "holding": {"delay": 0.0, "amp": 0.150242, "duration": 2400.0, "totduration": 2400.0}
+    }
+  }, 
+  "Step_250": {
+    "type": "StepProtocol", 
+    "stimuli": {
+      "step": {"delay": 800.0, "amp": 0.054731, "thresh_perc": 247.3585, "duration": 1350.0, "totduration": 2400.0},
+      "holding": {"delay": 0.0, "amp": 0.125543, "duration": 2400.0, "totduration": 2400.0}
+    }
+  }, 
+  "Step_200": {
+    "type": "StepProtocol", 
+    "stimuli": {
+      "step": {"delay": 800.0, "amp": 0.053804, "thresh_perc": 195.427, "duration": 1350.0, "totduration": 2400.0},
+      "holding": {"delay": 0.0, "amp": 0.148708, "duration": 2400.0, "totduration": 2400.0}
+    }
+  }, 
+  "Step_200_hyp": {
+    "type": "StepProtocol", 
+    "stimuli": {
+      "step": {"delay": 800.0, "amp": 0.129498, "thresh_perc": 196.8428, "duration": 1350.0, "totduration": 2400.0},
+      "holding": {"delay": 0.0, "amp": -0.001916, "duration": 2400.0, "totduration": 2400.0}
+    }
+  }, 
+  "IV_-120": {
+    "type": "StepProtocol", 
+    "stimuli": {
+      "step": {"delay": 800.0, "amp": -0.026303, "thresh_perc": -119.9379, "duration": 3000.0, "totduration": 4050.0},
+      "holding": {"delay": 0.0, "amp": 0.122346, "duration": 4050.0, "totduration": 4050.0}
+    }
+  }, 
+  "RMP": {
+    "type": "StepProtocol", 
+    "stimuli": {
+      "step": {"delay": 300, "amp": 0, "duration": 900.0, "totduration": 1200.0}
+    }
+  }, 
+  "hold_dep": {
+    "type": "StepProtocol", 
+    "stimuli": {
+      "step": {"delay": 300.0, "amp": 0.0, "thresh_perc": 0.0, "duration": 900.0, "totduration": 1200.0},
+      "holding": {"delay": 0.0, "amp": 0.125543, "duration": 1200.0, "totduration": 1200.0}
+    }
+  }, 
+  "hold_hyp": {
+    "type": "StepProtocol", 
+    "stimuli": {
+      "step": {"delay": 300.0, "amp": 0.0, "thresh_perc": 0.0, "duration": 900.0, "totduration": 1200.0},
+      "holding": {"delay": 0.0, "amp": -0.001916, "duration": 1200.0, "totduration": 1200.0}
+    }
+  }, 
+  "Rin_hyp": {
+    "type": "StepProtocol", 
+    "stimuli": {
+      "step": {"delay": 800.0, "amp": -0.025718, "thresh_perc": -38.55, "duration": 3000.0, "totduration": 4050.0},
+      "holding": {"delay": 0.0, "amp": 0.001035, "duration": 4050.0, "totduration": 4050.0}
+    }
+  }
+}

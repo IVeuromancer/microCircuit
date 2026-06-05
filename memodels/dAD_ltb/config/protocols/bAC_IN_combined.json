@@ -1,0 +1,82 @@
+{
+  "Main": {
+    "type": "RatSSCxMainProtocol", 
+    "rmp_score_threshold": 3, 
+    "rin_score_threshold": 3, 
+    "other_protocols": [
+      "Step_150_hyp",
+      "Step_200_hyp",
+      "Step_250_hyp",
+      "IV_-120_hyp"
+    ], 
+    "pre_protocols": [], 
+    "preprot_score_threshold": 3
+  }, 
+  "RinHoldcurrent_hyp": {
+    "type": "RatSSCxRinHoldcurrentProtocol", 
+    "holdi_precision": 0.1, 
+    "holdi_max_depth": 14, 
+    "holdi_estimate_multiplier": 1
+  }, 
+  "ThresholdDetection_hyp": {
+    "type": "RatSSCxThresholdDetectionProtocol", 
+    "step_template": {
+      "type": "StepProtocol",
+      "stimuli": {"step": {"delay": 800.0, "amp": null, "duration": 1800.0, "totduration": 1800.0}, "holding": {"delay": 0.0, "amp": null, "duration": 1800.0, "totduration": 1800.0}}
+    }
+  }, 
+  "RinHoldcurrent_dep": {
+    "type": "RatSSCxRinHoldcurrentProtocol", 
+    "holdi_precision": 0.1, 
+    "holdi_max_depth": 14, 
+    "holdi_estimate_multiplier": 1
+  }, 
+  "ThresholdDetection_dep": {
+    "type": "RatSSCxThresholdDetectionProtocol", 
+    "step_template": {
+      "type": "StepProtocol",
+      "stimuli": {"step": {"delay": 800.0, "amp": null, "duration": 1800.0, "totduration": 1800.0}, "holding": {"delay": 0.0, "amp": null, "duration": 1800.0, "totduration": 1800.0}}
+    }
+  }, 
+  "Step_150_hyp": {
+    "type": "StepProtocol", 
+    "stimuli": {
+      "step": {"delay": 800.0, "amp": 0.021614, "thresh_perc": 149.9792, "duration": 1350.0, "totduration": 2400.0},
+      "holding": {"delay": 0.0, "amp": -0.0202, "duration": 2400.0, "totduration": 2400.0}
+    }
+  }, 
+  "Step_200_hyp": {
+    "type": "StepProtocol", 
+    "stimuli": {
+      "step": {"delay": 800.0, "amp": 0.02893, "thresh_perc": 199.1537, "duration": 1350.0, "totduration": 2400.0},
+      "holding": {"delay": 0.0, "amp": -0.020949, "duration": 2400.0, "totduration": 2400.0}
+    }
+  }, 
+  "Step_250_hyp": {
+    "type": "StepProtocol", 
+    "stimuli": {
+      "step": {"delay": 800.0, "amp": 0.037026, "thresh_perc": 249.6601, "duration": 1350.0, "totduration": 2400.0},
+      "holding": {"delay": 0.0, "amp": -0.020808, "duration": 2400.0, "totduration": 2400.0}
+    }
+  }, 
+  "Rin_hyp": {
+    "type": "StepProtocol", 
+    "stimuli": {
+      "step": {"delay": 800.0, "amp": -0.006128, "thresh_perc": -42.3495, "duration": 3000.0, "totduration": 4050.0},
+      "holding": {"delay": 0.0, "amp": null, "duration": 4050.0, "totduration": 4050.0}
+    }
+  }, 
+  "RMP": {
+    "type": "StepProtocol", 
+    "stimuli": {
+      "step": {"delay": 300, "amp": 0, "duration": 900.0, "totduration": 1200.0}
+    }
+  }, 
+  "IV_-120_hyp": {
+    "type": "StepProtocol", 
+    "stimuli": {
+      "step": {"delay": 800.0, "amp": -0.017262, "thresh_perc": -117.3465, "duration": 3000.0, "totduration": 4050.0},
+      "holding": {"delay": 0.0, "amp": -0.018986, "duration": 4050.0, "totduration": 4050.0}
+    }
+  }
+}

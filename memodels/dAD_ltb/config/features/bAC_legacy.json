@@ -1,0 +1,71 @@
+{
+  "Step_150_hyp": {
+    "soma.v": [
+      {"feature": "voltage_after_stim", "val": [-80.4154, 3.2912], "n": 19, "fid": 1065, "strict_stim": true},
+      {"feature": "AP_amplitude", "val": [42.8939, 11.9102], "n": 18, "fid": 615, "strict_stim": true},
+      {"feature": "APlast_amp", "val": [41.8884, 11.9904], "n": 18, "fid": 930, "strict_stim": true},
+      {"feature": "AHP_depth", "val": [16.7219, 7.3255], "n": 18, "fid": 975, "strict_stim": true},
+      {"feature": "mean_frequency", "val": [8.4873, 3.3709], "n": 18, "fid": 690, "strict_stim": true},
+      {"feature": "inv_time_to_first_spike", "val": [9.1839, 7.216], "n": 19, "fid": 810, "strict_stim": true},
+      {"feature": "time_to_last_spike", "val": [956.9435, 304.9178], "n": 19, "fid": 795, "strict_stim": true},
+      {"feature": "inv_first_ISI", "val": [25.0808, 17.0444], "n": 19, "fid": 825, "strict_stim": true},
+      {"feature": "inv_second_ISI", "val": [15.2528, 11.2805], "n": 19, "fid": 840, "strict_stim": true},
+      {"feature": "inv_third_ISI", "val": [9.3161, 7.7511], "n": 19, "fid": 855, "strict_stim": true},
+      {"feature": "inv_fourth_ISI", "val": [7.6061, 6.3404], "n": 19, "fid": 870, "strict_stim": true},
+      {"feature": "inv_fifth_ISI", "val": [5.1407, 4.9365], "n": 19, "fid": 885, "strict_stim": true},
+      {"feature": "inv_last_ISI", "val": [7.5208, 4.401], "n": 19, "fid": 900, "strict_stim": true}
+    ]
+  }, 
+  "Step_200_hyp": {
+    "soma.v": [
+      {"feature": "voltage_after_stim", "val": [-80.0688, 3.1089], "n": 19, "fid": 1067, "strict_stim": true},
+      {"feature": "AP_amplitude", "val": [41.9561, 11.6749], "n": 19, "fid": 617, "strict_stim": true},
+      {"feature": "APlast_amp", "val": [41.2918, 11.8337], "n": 19, "fid": 932, "strict_stim": true},
+      {"feature": "AHP_depth", "val": [17.0412, 7.7713], "n": 19, "fid": 977, "strict_stim": true},
+      {"feature": "mean_frequency", "val": [11.3125, 4.6809], "n": 19, "fid": 692, "strict_stim": true},
+      {"feature": "inv_time_to_first_spike", "val": [15.6097, 10.8252], "n": 19, "fid": 812, "strict_stim": true},
+      {"feature": "time_to_last_spike", "val": [1156.1325, 272.8347], "n": 19, "fid": 797, "strict_stim": true},
+      {"feature": "inv_first_ISI", "val": [39.0998, 21.7452], "n": 19, "fid": 827, "strict_stim": true},
+      {"feature": "inv_second_ISI", "val": [27.4876, 16.8654], "n": 19, "fid": 842, "strict_stim": true},
+      {"feature": "inv_third_ISI", "val": [19.5249, 12.9291], "n": 19, "fid": 857, "strict_stim": true},
+      {"feature": "inv_fourth_ISI", "val": [14.8404, 9.8111], "n": 19, "fid": 872, "strict_stim": true},
+      {"feature": "inv_fifth_ISI", "val": [13.2371, 9.0779], "n": 19, "fid": 887, "strict_stim": true},
+      {"feature": "inv_last_ISI", "val": [9.1253, 5.1161], "n": 19, "fid": 902, "strict_stim": true}
+    ]
+  }, 
+  "Step_250_hyp": {
+    "soma.v": [
+      {"feature": "voltage_after_stim", "val": [-80.0838, 3.9548], "n": 17, "fid": 1070, "strict_stim": true},
+      {"feature": "AP_amplitude", "val": [42.1475, 11.2456], "n": 16, "fid": 620, "strict_stim": true},
+      {"feature": "APlast_amp", "val": [41.0905, 11.3259], "n": 16, "fid": 935, "strict_stim": true},
+      {"feature": "AHP_depth", "val": [18.686, 8.4792], "n": 17, "fid": 980, "strict_stim": true},
+      {"feature": "mean_frequency", "val": [13.8893, 6.0395], "n": 17, "fid": 695, "strict_stim": true},
+      {"feature": "inv_time_to_first_spike", "val": [23.0799, 16.2459], "n": 17, "fid": 815, "strict_stim": true},
+      {"feature": "time_to_last_spike", "val": [1226.4197, 187.1052], "n": 17, "fid": 800, "strict_stim": true},
+      {"feature": "inv_first_ISI", "val": [46.5303, 21.2214], "n": 17, "fid": 830, "strict_stim": true},
+      {"feature": "inv_second_ISI", "val": [35.3777, 19.3505], "n": 17, "fid": 845, "strict_stim": true},
+      {"feature": "inv_third_ISI", "val": [25.4447, 15.9995], "n": 17, "fid": 860, "strict_stim": true},
+      {"feature": "inv_fourth_ISI", "val": [19.9614, 14.0765], "n": 17, "fid": 875, "strict_stim": true},
+      {"feature": "inv_fifth_ISI", "val": [17.0303, 11.8467], "n": 17, "fid": 890, "strict_stim": true},
+      {"feature": "inv_last_ISI", "val": [11.1715, 5.3048], "n": 17, "fid": 905, "strict_stim": true}
+    ]
+  }, 
+  "Rin_hyp": {
+    "soma.v": [
+      {"feature": "ohmic_input_resistance_vb_ssse", "val": [545.0409, 357.6427], "n": 8, "fid": 439, "strict_stim": true},
+      {"feature": "voltage_base", "val": [-81.8114, 4.4928], "n": 8, "fid": 409, "strict_stim": true}
+    ]
+  }, 
+  "RMP": {
+    "soma.v": [
+      {"feature": "voltage_base", "val": [-79.5414, 3.925], "n": 4, "fid": 411, "strict_stim": true},
+      {"feature": "Spikecount", "val": [0.0, 0.001], "n": 4, "fid": 481, "strict_stim": true}
+    ]
+  }, 
+  "IV_-120_hyp": {
+    "soma.v": [
+      {"feature": "voltage_deflection", "val": [-11.1796, 6.287], "n": 6, "fid": 447, "strict_stim": true},
+      {"feature": "voltage_deflection_begin", "val": [-13.8988, 8.5392], "n": 6, "fid": 457, "strict_stim": true}
+    ]
+  }
+}

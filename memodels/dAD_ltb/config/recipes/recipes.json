@@ -1,0 +1,122 @@
+{
+    "bAC_IN_legacy": {
+        "morph_path": "/gpfs/bbp.cscs.ch/project/proj55/data/morphologies/mouse/asc/",  			 
+        "morphology": "jy171222_A_idA.asc",
+        "params": "config/params/VPLin.json",
+        "protocol": "config/protocols/bAC_IN_legacy.json",
+        "features": "config/features/bAC_IN_legacy.json"
+    },
+    "bAC_IN": {
+        "morph_path": "/gpfs/bbp.cscs.ch/project/proj55/data/morphologies/mouse/asc/",  			 
+        "morphology": "jy171222_A_idA.asc",
+        "params": "config/params/VPLin.json",
+        "protocol": "config/protocols/bAC_IN.json",
+        "features": "config/features/bAC_IN.json"
+    },
+    "dNAD_ltb_legacy": {
+        "morph_path": "/gpfs/bbp.cscs.ch/project/proj55/data/morphologies/mouse/asc/",
+        "morphology": "jy180314_B_idA.asc",
+        "params": "config/params/bAC_TC_VPL.json",
+        "protocol": "config/protocols/dNAD_ltb_legacy.json",
+        "features": "config/features/dNAD_ltb_legacy.json"
+    },
+    "dNAD_ltb": {
+        "morph_path": "/gpfs/bbp.cscs.ch/project/proj55/data/morphologies/mouse/asc/",
+        "morphology": "jy180314_B_idA.asc",
+        "params": "config/params/bAC_TC_VPL.json",
+        "protocol": "config/protocols/dNAD_ltb.json",
+        "features": "config/features/dNAD_ltb.json"
+    },
+    "dAD_ltb_legacy": {
+        "morph_path": "/gpfs/bbp.cscs.ch/project/proj55/data/morphologies/mouse/asc/",
+        "morphology": "jy180321_B_idA.asc",
+        "params": "config/params/bAC_TC_VPL.json",
+        "protocol": "config/protocols/dAD_ltb_legacy.json",
+        "features": "config/features/dAD_ltb_legacy.json"
+    },
+    "dAD_ltb": {
+        "morph_path": "/gpfs/bbp.cscs.ch/project/proj55/data/morphologies/mouse/asc/",
+        "morphology": "jy180321_B_idA.asc",
+        "params": "config/params/bAC_TC_VPL.json",
+        "protocol": "config/protocols/dAD_ltb.json",
+        "features": "config/features/dAD_ltb.json"
+    },
+    "cNAD_noscltb_legacy": {
+        "morph_path": "/gpfs/bbp.cscs.ch/project/proj55/iavarone/releases/morphology_release/2019-01-25/output/ascii/",
+        "morphology": "04531-04540-X11803-Y13470_final.asc",
+        "params": "config/params/bNoscNAC_Rt.json",
+        "protocol": "config/protocols/cNAD_noscltb_legacy.json",
+        "features": "config/features/cNAD_noscltb_legacy.json"
+    },
+    "cNAD_noscltb": {
+        "morph_path": "/gpfs/bbp.cscs.ch/project/proj55/iavarone/releases/morphology_release/2019-01-25/output/ascii/",
+        "morphology": "04531-04540-X11803-Y13470_final.asc",
+        "params": "config/params/bNoscNAC_Rt.json",
+        "protocol": "config/protocols/cNAD_noscltb.json",
+        "features": "config/features/cNAD_noscltb.json"
+    },
+    "cAD_noscltb_legacy": {
+        "morph_path": "/gpfs/bbp.cscs.ch/project/proj55/data/morphologies/mouse/asc/",
+        "morphology": "jy180123_A_idE.asc",
+        "params": "config/params/bNoscNAC_Rt.json",
+        "protocol": "config/protocols/cAD_noscltb_legacy.json",
+        "features": "config/features/cAD_noscltb_legacy.json"
+    },
+    "cAD_noscltb": {
+        "morph_path": "/gpfs/bbp.cscs.ch/project/proj55/data/morphologies/mouse/asc/",
+        "morphology": "jy180123_A_idE.asc",
+        "params": "config/params/bNoscNAC_Rt.json",
+        "protocol": "config/protocols/cAD_noscltb.json",
+        "features": "config/features/cAD_noscltb.json"
+    },
+    "cAD_oscltb_legacy": {
+        "morph_path": "/gpfs/bbp.cscs.ch/project/proj55/iavarone/releases/morphology_release/2019-01-25/output/ascii/",
+        "morphology": "04527-04540-X11773-Y24082_final.asc",
+        "params": "config/params/bNoscNAC_Rt.json",
+        "protocol": "config/protocols/cAD_oscltb_legacy.json",
+        "features": "config/features/cAD_oscltb_legacy.json"
+    },
+    "cAD_oscltb": {
+        "morph_path": "/gpfs/bbp.cscs.ch/project/proj55/iavarone/releases/morphology_release/2019-01-25/output/ascii/",
+        "morphology": "04527-04540-X11773-Y24082_final.asc",
+        "params": "config/params/bNoscNAC_Rt.json",
+        "protocol": "config/protocols/cAD_oscltb.json",
+        "features": "config/features/cAD_oscltb.json"
+    },
+    "cNAD_nltb_legacy": {
+        "morph_path": "/gpfs/bbp.cscs.ch/project/proj55/iavarone/releases/morphology_release/2019-01-25/output/ascii/",
+        "morphology": "05311-05329-X10166-Y11730_final.asc",
+        "params": "config/params/bNoscNAC_Rt.json",
+        "protocol": "config/protocols/cNAD_nltb_legacy.json",
+        "features": "config/features/cNAD_nltb_legacy.json"
+    },
+    "cNAD_nltb": {
+        "morph_path": "/gpfs/bbp.cscs.ch/project/proj55/iavarone/releases/morphology_release/2019-01-25/output/ascii/",
+        "morphology": "05311-05329-X10166-Y11730_final.asc",
+        "params": "config/params/bNoscNAC_Rt.json",
+        "protocol": "config/protocols/cNAD_nltb.json",
+        "features": "config/features/cNAD_nltb.json"
+    },
+    "bNoscNAC_legacy": {
+        "morph_path": "/gpfs/bbp.cscs.ch/project/proj55/data/morphologies/mouse/",
+        "morphology": "04531-04540-X11803-Y13470_final.asc",
+        "params": "config/params/bNoscNAC_Rt.json",
+        "protocol": "config/protocols/bNoscNAC_legacy.json",
+        "features": "config/features/bNoscNAC_legacy.json"
+    },
+    "bNoscNAC": {
+        "morph_path": "/gpfs/bbp.cscs.ch/project/proj55/data/morphologies/mouse/asc/",
+        "morphology": "04531-04540-X11803-Y13470_final.asc",
+        "params": "config/params/bNoscNAC_Rt.json",
+        "protocol": "config/protocols/bNoscNAC.json",
+        "features": "config/features/bNoscNAC.json"
+    },
+    "bAC_TC_VPL_legacy": {
+        "morph_path": "/gpfs/bbp.cscs.ch/project/proj55/data/morphologies/mouse/asc/",  			 
+        "morphology": "R281HI-6-6-16_ventralneuron.asc",
+        "params": "config/params/bAC_TC_VPL.json",
+        "protocol": "config/protocols/bAC_TC_VPL_legacy.json",
+        "features": "config/features/bAC_TC_VPL_legacy.json"
+    }
+
+}

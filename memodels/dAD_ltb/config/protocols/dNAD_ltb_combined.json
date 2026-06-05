@@ -1,0 +1,113 @@
+{
+  "Main": {
+    "type": "RatSSCxMainProtocol", 
+    "rmp_score_threshold": 3, 
+    "rin_score_threshold": 3, 
+    "other_protocols": [
+      "Step_150",
+      "Step_250",
+      "Step_200",
+      "Step_200_hyp",
+      "IV_-140",
+      "hold_dep",
+      "hold_hyp"
+    ], 
+    "pre_protocols": [], 
+    "preprot_score_threshold": 3
+  }, 
+  "RinHoldcurrent_hyp": {
+    "type": "RatSSCxRinHoldcurrentProtocol", 
+    "holdi_precision": 0.1, 
+    "holdi_max_depth": 14, 
+    "holdi_estimate_multiplier": 1
+  }, 
+  "ThresholdDetection_hyp": {
+    "type": "RatSSCxThresholdDetectionProtocol", 
+    "step_template": {
+      "type": "StepProtocol",
+      "stimuli": {"step": {"delay": 800.0, "amp": null, "duration": 1800.0, "totduration": 1800.0}, "holding": {"delay": 0.0, "amp": null, "duration": 1800.0, "totduration": 1800.0}}
+    }
+  }, 
+  "RinHoldcurrent_dep": {
+    "type": "RatSSCxRinHoldcurrentProtocol", 
+    "holdi_precision": 0.1, 
+    "holdi_max_depth": 14, 
+    "holdi_estimate_multiplier": 1
+  }, 
+  "ThresholdDetection_dep": {
+    "type": "RatSSCxThresholdDetectionProtocol", 
+    "step_template": {
+      "type": "StepProtocol",
+      "stimuli": {"step": {"delay": 800.0, "amp": null, "duration": 1800.0, "totduration": 1800.0}, "holding": {"delay": 0.0, "amp": null, "duration": 1800.0, "totduration": 1800.0}}
+    }
+  }, 
+  "Step_150": {
+    "type": "StepProtocol", 
+    "stimuli": {
+      "step": {"delay": 800.0, "amp": 0.163198, "thresh_perc": 150.2126, "duration": 1350.0, "totduration": 2400.0},
+      "holding": {"delay": 0.0, "amp": 0.088401, "duration": 2400.0, "totduration": 2400.0}
+    }
+  }, 
+  "Step_250": {
+    "type": "StepProtocol", 
+    "stimuli": {
+      "step": {"delay": 800.0, "amp": 0.083384, "thresh_perc": 249.9403, "duration": 1350.0, "totduration": 2400.0},
+      "holding": {"delay": 0.0, "amp": 0.123484, "duration": 2400.0, "totduration": 2400.0}
+    }
+  }, 
+  "Step_200": {
+    "type": "StepProtocol", 
+    "stimuli": {
+      "step": {"delay": 800.0, "amp": 0.14067, "thresh_perc": 194.7375, "duration": 1350.0, "totduration": 2400.0},
+      "holding": {"delay": 0.0, "amp": 0.056106, "duration": 2400.0, "totduration": 2400.0}
+    }
+  }, 
+  "Step_200_hyp": {
+    "type": "StepProtocol", 
+    "stimuli": {
+      "step": {"delay": 800.0, "amp": 0.102159, "thresh_perc": 196.945, "duration": 1350.0, "totduration": 2400.0},
+      "holding": {"delay": 0.0, "amp": -0.151798, "duration": 2400.0, "totduration": 2400.0}
+    }
+  }, 
+  "IV_-140": {
+    "type": "StepProtocol", 
+    "stimuli": {
+      "step": {"delay": 800.0, "amp": -0.048953, "thresh_perc": -146.7348, "duration": 3000.0, "totduration": 4050.0},
+      "holding": {"delay": 0.0, "amp": 0.123382, "duration": 4050.0, "totduration": 4050.0}
+    }
+  }, 
+  "RMP": {
+    "type": "StepProtocol", 
+    "stimuli": {
+      "step": {"delay": 300, "amp": 0, "duration": 900.0, "totduration": 1200.0}
+    }
+  }, 
+  "hold_dep": {
+    "type": "StepProtocol", 
+    "stimuli": {
+      "step": {"delay": 650.0, "amp": -9.4e-05, "thresh_perc": -0.0293, "duration": 10000.0, "totduration": 10900.0},
+      "holding": {"delay": 0.0, "amp": 0.087351, "duration": 10900.0, "totduration": 10900.0}
+    }
+  }, 
+  "hold_hyp": {
+    "type": "StepProtocol", 
+    "stimuli": {
+      "step": {"delay": 650.0, "amp": -7.1e-05, "thresh_perc": -0.1395, "duration": 10000.0, "totduration": 10900.0},
+      "holding": {"delay": 0.0, "amp": -0.146238, "duration": 10900.0, "totduration": 10900.0}
+    }
+  }, 
+  "Rin_dep": {
+    "type": "StepProtocol", 
+    "stimuli": {
+      "step": {"delay": 800.0, "amp": -0.043618, "thresh_perc": -40.2717, "duration": 3000.0, "totduration": 4050.0},
+      "holding": {"delay": 0.0, "amp": null, "duration": 4050.0, "totduration": 4050.0}
+    }
+  }, 
+  "Rin_hyp": {
+    "type": "StepProtocol", 
+    "stimuli": {
+      "step": {"delay": 800.0, "amp": -0.021094, "thresh_perc": -40.3532, "duration": 3000.0, "totduration": 4050.0},
+      "holding": {"delay": 0.0, "amp": null, "duration": 4050.0, "totduration": 4050.0}
+    }
+  }
+}

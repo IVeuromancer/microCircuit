@@ -1,3 +1,0 @@
-node_type_id rotation_angle_zaxis ei pop_name dynamics_params model_template morphology_file model_type model_processing
-100 0 e TC cAD_ltb.json ctdb:Biophys1.hoc TC_jy170517_A_idA.asc biophysical aibs_perisomatic
-101 0 i IN cAD_ltb.json ctdb:Biophys1.hoc IN_jy171222_A_idA.ASC biophysical aibs_perisomatic

@@ -1,0 +1,61 @@
+{
+    "mechanisms": {
+        "all":
+            {"mech":["TC_Kleak",
+                    "TC_cad"]},
+        "somatic":
+            {"mech":["TC_ih", "TC_iT", "TC_NaP", 
+		     "TC_iA","TC_iL", "TC_iC", "TC_HH"]},
+        "alldend":
+            {"mech":["TC_ih", "TC_iT", "TC_NaP", 
+		     "TC_iA","TC_iL", "TC_iC", "TC_HH"]},
+	"axonal":
+            {"mech":["TC_HH"]}
+    },
+    "distributions": {
+    },
+    "parameters": {
+        "__comment": "define constants as single values and params to optimize as tuples of bounds: [lower, upper]",
+        "global":   [
+            {"name":"v_init",   "val":-79},
+            {"name":"celsius",  "val":34}
+        ],
+        "all": [
+            {"name":"cm",                     "val":1},
+            {"name":"Ra",                     "val":150},
+            {"name":"ena",                    "val":50},
+            {"name":"ek",                     "val":-90},
+            {"name":"g_TC_Kleak",             "val":[1e-06, 1e-04]},
+	    {"name":"eleak_TC_Kleak",         "val":[-80, -60]}
+        ],
+        "axonal": [
+            {"name":"gk_max_TC_HH",           "val":[0.019666658667272859, 0.20651699282798366]},
+            {"name":"gna_max_TC_HH",          "val":[0.022787063504917601, 0.79910306824950195]}
+        ],
+        "somatic": [
+            {"name":"gh_max_TC_ih",           "val":[5.9773937139669514e-05, 0.00049513359235501045]},
+            {"name":"pcabar_TC_iT",           "val":[3.8050202510451446e-06, 1.2231898873943897e-04]},
+            {"name":"gNaP_max_TC_NaP",        "val":[9.21577448662758e-07, 0.0032211000964908255]},
+            {"name":"gk_max_TC_iA",           "val":[6.5666670465693644e-07, 0.065724656943645182]},
+            {"name":"gk_max_TC_HH",           "val":[0.0007281843996484157, 0.1089748642703158]},
+	    {"name":"gna_max_TC_HH",          "val":[0.061872047379828446, 0.14707407905066136]},
+	    {"name":"pcabar_TC_iL",           "val":[3.1732420195887241e-05, 0.0008567608790318314]},
+	    {"name":"gkbar_TC_iC",            "val":[5.0986949855127073e-06, 0.0039897440513288022]},
+	    {"name":"taur_TC_cad",            "val":[2.0, 100.0]},
+	    {"name":"gamma_TC_cad",	      "val":[0.0005, 1]}
+        ],
+        "alldend": [
+	    {"name":"gh_max_TC_ih",           "val":[4.171399419102858e-7, 0.00012070539674284781]},
+            {"name":"pcabar_TC_iT",           "val":[3.2032630797907856e-06, 0.00010963892812803418]},
+            {"name":"gNaP_max_TC_NaP",        "val":[1.3865180852147914e-08, 0.00014275829314258892]},
+            {"name":"gk_max_TC_iA",           "val":[3.8732937346138033e-05, 0.0078782679339959444]},
+            {"name":"gk_max_TC_HH",           "val":[6.956591282957464e-05, 0.010566947656111566]},
+	    {"name":"gna_max_TC_HH",          "val":[0.00015221960528251146, 0.0059290575180045678]},
+	    {"name":"pcabar_TC_iL",           "val":[6.7474994954069703e-07, 0.00075137241102738665]},
+	    {"name":"gkbar_TC_iC",            "val":[4.6112101011188033e-06, 0.00073465335372232437]},
+	    {"name":"taur_TC_cad",            "val":[2.0, 100.0]},
+	    {"name":"gamma_TC_cad",	      "val":[0.0005, 1]}
+
+        ]
+    }
+}
