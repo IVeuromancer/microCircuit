@@ -1,8 +1,6 @@
-Developed May to September 2020
-
 # microCircuit
 
-> Originally developed May–September 2020. Uploaded to GitHub in 2026.
+> Developed May-September 2020
 
 Biophysical model of a thalamic microcircuit consisting of thalamocortical relay (TC) and local interneuron (IN) cell populations, driven by whisker stimulus-derived Poisson spike trains. Built with [Blue Brain Project](https://www.epfl.ch/research/domains/bluebrain/) tools and simulated in [NEURON](https://neuron.yale.edu/).
 
