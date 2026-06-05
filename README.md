@@ -1,3 +1,5 @@
+Developed May to September 2020
+
 # microCircuit
 
 > Originally developed May–September 2020. Uploaded to GitHub in 2026.
