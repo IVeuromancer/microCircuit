@@ -1,0 +1,21 @@
+name: microcircuit
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.7
+  - numpy
+  - scipy
+  - matplotlib
+  - h5py
+  - neuron  # NEURON simulator with Python interface
+
+  # Spike train generation (vendored in scripts/stgen.py)
+  - pip
+  - pip:
+    - NeuroTools
+
+  # Optional: dAD_ltb single-cell optimization pipeline
+  - pip:
+    - bluepyopt
+    - efel
