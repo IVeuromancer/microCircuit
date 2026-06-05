@@ -204,11 +204,11 @@ def createSubnetworkInputs(trial, parent_dir):
     # print(subnetwork2_input)
     trial_str = str(trial)
     parent_dir_str = str(parent_dir)
-    np.save('../../spike_input/' + parent_dir_str+'/'+'Br1/subnetwork1_input' + '_' + trial_str + '.npy', subnetwork1_input, allow_pickle = True)
-    np.save('../../spike_input/' + parent_dir_str+'/'+'Br1/subnetwork2_input' + '_' + trial_str + '.npy', subnetwork2_input, allow_pickle = True)
-    np.save('../../spike_input/' + parent_dir_str+'/'+'Br2/subnetwork1_input' + '_' + trial_str + '.npy', subnetwork1_inputr, allow_pickle = True)
-    np.save('../../spike_input/' + parent_dir_str+'/'+'Br2/subnetwork2_input' + '_' + trial_str + '.npy', subnetwork2_inputr, allow_pickle = True)
-    np.save('../../spike_input/' + parent_dir_str+'/'+'extra_input1/subnetworkall_input' + '_' + trial_str + '.npy', subnetworkall_inputrr, allow_pickle = True)
-    np.save('../../spike_input/' + parent_dir_str+'/'+'extra_input2/subnetworkall_input' + '_' + trial_str + '.npy', subnetworkall_inputrrr, allow_pickle = True)
+    np.save('../spike_input/' + parent_dir_str+'/'+'Br1/subnetwork1_input' + '_' + trial_str + '.npy', subnetwork1_input, allow_pickle = True)
+    np.save('../spike_input/' + parent_dir_str+'/'+'Br1/subnetwork2_input' + '_' + trial_str + '.npy', subnetwork2_input, allow_pickle = True)
+    np.save('../spike_input/' + parent_dir_str+'/'+'Br2/subnetwork1_input' + '_' + trial_str + '.npy', subnetwork1_inputr, allow_pickle = True)
+    np.save('../spike_input/' + parent_dir_str+'/'+'Br2/subnetwork2_input' + '_' + trial_str + '.npy', subnetwork2_inputr, allow_pickle = True)
+    np.save('../spike_input/' + parent_dir_str+'/'+'extra_input1/subnetworkall_input' + '_' + trial_str + '.npy', subnetworkall_inputrr, allow_pickle = True)
+    np.save('../spike_input/' + parent_dir_str+'/'+'extra_input2/subnetworkall_input' + '_' + trial_str + '.npy', subnetworkall_inputrrr, allow_pickle = True)
     return subnetwork1_input, subnetwork2_input, subnetwork1_inputr, subnetwork2_inputr
 

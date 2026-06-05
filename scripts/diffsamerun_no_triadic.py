@@ -1,5 +1,5 @@
 from neuron import h
-from subnetwork_200619 import Subnetwork
+from subnetwork_200619_no_triadic import Subnetwork_no_triadic
 import numpy as np
 import time
 import datetime
@@ -9,34 +9,34 @@ from distutils.dir_util import copy_tree
 
 def copyinputs(old_parent_dir):
     datetimestr = datetime.datetime.now().strftime("_%y%m%d")  
-    parent_dir = 'run' + datetimestr + '_sameopp_no_distriadic'
-    old_dir = '../../spike_input/' + old_parent_dir
-    new_dir = '../../spike_input/' + parent_dir  
+    parent_dir = 'run' + datetimestr + '_sameopp_no_triadic'
+    old_dir = '../spike_input/' + old_parent_dir
+    new_dir = '../spike_input/' + parent_dir  
     copy_tree(old_dir, new_dir)
 
-def diffrun(z):   
+def diffrun(z):    
 
     #datetimestr = datetime.datetime.now().strftime("_%y%m%d")  
     datetimestr = '_200914'
-    parent_dir = 'run' +datetimestr + '_sameopp_no_distriadic'  
+    parent_dir = 'run' +datetimestr + '_sameopp_no_triadic'
 
-    # path_diff = '../../spike_output/' + parent_dir 
+    # path_diff = '../spike_output/' + parent_dir 
     # if not os.path.exists(path_diff):
     #     os.mkdir(path_diff)
     #     print("Directory " , path_diff ,  " Created ")
 
     N=4
-    subnetwork = Subnetwork(0,N,100)
-    subnetwork2 = Subnetwork(9,N,100) #gidStart should be number of gids (3 for IN + 2 for TC)
+    subnetwork = Subnetwork_no_triadic(0,N,100)
+    subnetwork2 = Subnetwork_no_triadic(9,N,100) #gidStart should be number of gids (3 for IN + 2 for TC)
 
-    new_subnetwork1 = np.load('../../spike_input/'+parent_dir+'/'+'Br1/edited/subnetwork1_input' + '_' + str(z) + '.npy', allow_pickle = True)
-    new_subnetwork2 = np.load('../../spike_input/'+parent_dir+'/'+'Br1/edited/subnetwork2_input' + '_' + str(z) + '.npy', allow_pickle = True)
-    new2_subnetwork1 = np.load('../../spike_input/'+parent_dir+'/'+'Br2/edited/subnetwork1_input' + '_' + str(z) + '.npy', allow_pickle = True)
-    new2_subnetwork2 = np.load('../../spike_input/'+parent_dir+'/'+'Br2/edited/subnetwork2_input' + '_' + str(z) + '.npy', allow_pickle = True)
-    new3_subnetworkall = np.load('../../spike_input/'+parent_dir+'/'+'extra_input1/edited/subnetworkall_input' + '_' + str(z) + '.npy', allow_pickle = True)
-    new4_subnetworkall = np.load('../../spike_input/'+parent_dir+'/'+'extra_input2/edited/subnetworkall_input' + '_' + str(z) + '.npy', allow_pickle = True)
+    new_subnetwork1 = np.load('../spike_input/'+parent_dir+'/'+'Br1/edited/subnetwork1_input' + '_' + str(z) + '.npy', allow_pickle = True)
+    new_subnetwork2 = np.load('../spike_input/'+parent_dir+'/'+'Br1/edited/subnetwork2_input' + '_' + str(z) + '.npy', allow_pickle = True)
+    new2_subnetwork1 = np.load('../spike_input/'+parent_dir+'/'+'Br2/edited/subnetwork1_input' + '_' + str(z) + '.npy', allow_pickle = True)
+    new2_subnetwork2 = np.load('../spike_input/'+parent_dir+'/'+'Br2/edited/subnetwork2_input' + '_' + str(z) + '.npy', allow_pickle = True)
+    new3_subnetworkall = np.load('../spike_input/'+parent_dir+'/'+'extra_input1/edited/subnetworkall_input' + '_' + str(z) + '.npy', allow_pickle = True)
+    new4_subnetworkall = np.load('../spike_input/'+parent_dir+'/'+'extra_input2/edited/subnetworkall_input' + '_' + str(z) + '.npy', allow_pickle = True)
 
-    path_diff = '../../spike_output/' + parent_dir + '/diffrun_' + str(z) + '/'
+    path_diff = '../spike_output/' + parent_dir + '/diffrun_' + str(z) + '/'
     if not os.path.exists(path_diff):
         os.mkdir(path_diff)
         print("Directory " , path_diff ,  " Created ")
@@ -86,23 +86,23 @@ def diffrun(z):
         nc_IN2axon_IN1.weight[0] = 0.005
         nc_IN2axon_IN1.delay = 1
     
-        # syn_IN1dend_IN2 = h.Exp2Syn(subnetwork2.IN_1.model.dend[25](1))
-        # syn_IN1dend_IN2.tau1 = 0.71
-        # syn_IN1dend_IN2.tau2 = 4.18
-        # syn_IN1dend_IN2.e = -80
-        # nc_IN1dend_IN2 = h.NetCon(subnetwork.IN_1.model.dend[85](1)._ref_v, syn_IN1dend_IN2, sec=subnetwork.IN_1.model.dend[85])
-        # nc_IN1dend_IN2.weight[0] = 0.005
-        # nc_IN1dend_IN2.delay = 0.1
-        # nc_IN1dend_IN2.threshold = -34
+        syn_IN1dend_IN2 = h.Exp2Syn(subnetwork2.IN_1.model.dend[25](1))
+        syn_IN1dend_IN2.tau1 = 0.71
+        syn_IN1dend_IN2.tau2 = 4.18
+        syn_IN1dend_IN2.e = -80
+        nc_IN1dend_IN2 = h.NetCon(subnetwork.IN_1.model.dend[85](1)._ref_v, syn_IN1dend_IN2, sec=subnetwork.IN_1.model.dend[85])
+        nc_IN1dend_IN2.weight[0] = 0.005
+        nc_IN1dend_IN2.delay = 0.1
+        nc_IN1dend_IN2.threshold = -34
     
-        # syn_IN2dend_IN1 = h.Exp2Syn(subnetwork.IN_1.model.dend[25](1))
-        # syn_IN2dend_IN1.tau1 = 0.71
-        # syn_IN2dend_IN1.tau2 = 4.18
-        # syn_IN2dend_IN1.e = -80
-        # nc_IN2dend_IN1 = h.NetCon(subnetwork2.IN_1.model.dend[85](1)._ref_v, syn_IN2dend_IN1, sec=subnetwork2.IN_1.model.dend[85])
-        # nc_IN2dend_IN1.weight[0] = 0.005
-        # nc_IN2dend_IN1.delay = 0.1
-        # nc_IN2dend_IN1.threshold = -34
+        syn_IN2dend_IN1 = h.Exp2Syn(subnetwork.IN_1.model.dend[25](1))
+        syn_IN2dend_IN1.tau1 = 0.71
+        syn_IN2dend_IN1.tau2 = 4.18
+        syn_IN2dend_IN1.e = -80
+        nc_IN2dend_IN1 = h.NetCon(subnetwork2.IN_1.model.dend[85](1)._ref_v, syn_IN2dend_IN1, sec=subnetwork2.IN_1.model.dend[85])
+        nc_IN2dend_IN1.weight[0] = 0.005
+        nc_IN2dend_IN1.delay = 0.1
+        nc_IN2dend_IN1.threshold = -34
         
         # add Br inputs to other INs (diffIN network arrangement)
 
@@ -252,7 +252,7 @@ def diffrun(z):
         filename_spikes = 'diffIN_spike_events' 
         #<3 txt_ext = '.txt'
         pickle_ext = '.npy'
-        folder = '../../spike_output/' + parent_dir + '/diffrun_' + str(z) + '/'
+        folder = '../spike_output/' + parent_dir + '/diffrun_' + str(z) + '/'
         np.save(folder+filename_spikes+datetimestr+'-'+str(x)+pickle_ext, diffIN_spike_events, allow_pickle = True)
 
 #<3 diffIN_time_series = np.array(diffIN_time_series)
@@ -309,7 +309,7 @@ def diffrun(z):
     # del start
     # del starttime
     # del subnetwork
-    # del subnetwork2 
+    # del subnetwork2
     # del synBr1toIN1
     # del synBr1toIN2
     # del synBr2toIN1
@@ -322,28 +322,29 @@ def diffrun(z):
     # del x
     return z
     
-def samerun(z):     
+def samerun(z):    
+
     #datetimestr = datetime.datetime.now().strftime("_%y%m%d")  
     datetimestr = '_200914'
-    parent_dir = 'run' +datetimestr + '_sameopp_no_distriadic'  
+    parent_dir = 'run' +datetimestr + '_sameopp_no_triadic' 
 
-    # path_same = '../../spike_output/' + parent_dir 
+    # path_same = '../spike_output/' + parent_dir 
     # if not os.path.exists(path_same):
     #     os.mkdir(path_same)
     #     print("Directory " , path_same ,  " Created ")
     
     N=4
-    subnetwork = Subnetwork(0,N,100)
-    subnetwork2 = Subnetwork(9,N,100) #gidStart should be number of gids (3 for IN + 2 for TC)    
+    subnetwork = Subnetwork_no_triadic(0,N,100)
+    subnetwork2 = Subnetwork_no_triadic(9,N,100) #gidStart should be number of gids (3 for IN + 2 for TC)    
     
-    new_subnetwork1 = np.load('../../spike_input/'+parent_dir+'/'+'Br1/edited/subnetwork1_input' + '_' + str(z) + '.npy', allow_pickle = True)
-    new_subnetwork2 = np.load('../../spike_input/'+parent_dir+'/'+'Br1/edited/subnetwork2_input' + '_' + str(z) + '.npy', allow_pickle = True)
-    new2_subnetwork1 = np.load('../../spike_input/'+parent_dir+'/'+'Br2/edited/subnetwork1_input' + '_' + str(z) + '.npy', allow_pickle = True)
-    new2_subnetwork2 = np.load('../../spike_input/'+parent_dir+'/'+'Br2/edited/subnetwork2_input' + '_' + str(z) + '.npy', allow_pickle = True)
-    new3_subnetworkall = np.load('../../spike_input/'+parent_dir+'/'+'extra_input1/edited/subnetworkall_input' + '_' + str(z) + '.npy', allow_pickle = True)
-    new4_subnetworkall = np.load('../../spike_input/'+parent_dir+'/'+'extra_input2/edited/subnetworkall_input' + '_' + str(z) + '.npy', allow_pickle = True)
+    new_subnetwork1 = np.load('../spike_input/'+parent_dir+'/'+'Br1/edited/subnetwork1_input' + '_' + str(z) + '.npy', allow_pickle = True)
+    new_subnetwork2 = np.load('../spike_input/'+parent_dir+'/'+'Br1/edited/subnetwork2_input' + '_' + str(z) + '.npy', allow_pickle = True)
+    new2_subnetwork1 = np.load('../spike_input/'+parent_dir+'/'+'Br2/edited/subnetwork1_input' + '_' + str(z) + '.npy', allow_pickle = True)
+    new2_subnetwork2 = np.load('../spike_input/'+parent_dir+'/'+'Br2/edited/subnetwork2_input' + '_' + str(z) + '.npy', allow_pickle = True)
+    new3_subnetworkall = np.load('../spike_input/'+parent_dir+'/'+'extra_input1/edited/subnetworkall_input' + '_' + str(z) + '.npy', allow_pickle = True)
+    new4_subnetworkall = np.load('../spike_input/'+parent_dir+'/'+'extra_input2/edited/subnetworkall_input' + '_' + str(z) + '.npy', allow_pickle = True)
 
-    path_same = '../../spike_output/' + parent_dir + '/samerun_' + str(z) + '/'
+    path_same = '../spike_output/' + parent_dir + '/samerun_' + str(z) + '/'
     if not os.path.exists(path_same):
         os.mkdir(path_same)
         print("Directory " , path_same ,  " Created ")
@@ -391,23 +392,23 @@ def samerun(z):
         nc_IN2axon_IN1.weight[0] = 0.005
         nc_IN2axon_IN1.delay = 1
     
-        # syn_IN1dend_IN2 = h.Exp2Syn(subnetwork2.IN_1.model.dend[25](1))
-        # syn_IN1dend_IN2.tau1 = 0.71
-        # syn_IN1dend_IN2.tau2 = 4.18
-        # syn_IN1dend_IN2.e = -80
-        # nc_IN1dend_IN2 = h.NetCon(subnetwork.IN_1.model.dend[85](1)._ref_v, syn_IN1dend_IN2, sec=subnetwork.IN_1.model.dend[85])
-        # nc_IN1dend_IN2.weight[0] = 0.005
-        # nc_IN1dend_IN2.delay = 0.1
-        # nc_IN1dend_IN2.threshold = -34
+        syn_IN1dend_IN2 = h.Exp2Syn(subnetwork2.IN_1.model.dend[25](1))
+        syn_IN1dend_IN2.tau1 = 0.71
+        syn_IN1dend_IN2.tau2 = 4.18
+        syn_IN1dend_IN2.e = -80
+        nc_IN1dend_IN2 = h.NetCon(subnetwork.IN_1.model.dend[85](1)._ref_v, syn_IN1dend_IN2, sec=subnetwork.IN_1.model.dend[85])
+        nc_IN1dend_IN2.weight[0] = 0.005
+        nc_IN1dend_IN2.delay = 0.1
+        nc_IN1dend_IN2.threshold = -34
     
-        # syn_IN2dend_IN1 = h.Exp2Syn(subnetwork.IN_1.model.dend[25](1))
-        # syn_IN2dend_IN1.tau1 = 0.71
-        # syn_IN2dend_IN1.tau2 = 4.18
-        # syn_IN2dend_IN1.e = -80
-        # nc_IN2dend_IN1 = h.NetCon(subnetwork2.IN_1.model.dend[85](1)._ref_v, syn_IN2dend_IN1, sec=subnetwork2.IN_1.model.dend[85])
-        # nc_IN2dend_IN1.weight[0] = 0.005
-        # nc_IN2dend_IN1.delay = 0.1
-        # nc_IN2dend_IN1.threshold = -34
+        syn_IN2dend_IN1 = h.Exp2Syn(subnetwork.IN_1.model.dend[25](1))
+        syn_IN2dend_IN1.tau1 = 0.71
+        syn_IN2dend_IN1.tau2 = 4.18
+        syn_IN2dend_IN1.e = -80
+        nc_IN2dend_IN1 = h.NetCon(subnetwork2.IN_1.model.dend[85](1)._ref_v, syn_IN2dend_IN1, sec=subnetwork2.IN_1.model.dend[85])
+        nc_IN2dend_IN1.weight[0] = 0.005
+        nc_IN2dend_IN1.delay = 0.1
+        nc_IN2dend_IN1.threshold = -34
        
         # add Br inputs to own IN (sameIN network arrangement)
 
@@ -555,7 +556,7 @@ def samerun(z):
         filename_spikes = 'sameIN_spike_events' 
         #<3 txt_ext = '.txt'
         pickle_ext = '.npy'
-        folder = '../../spike_output/' + parent_dir + '/samerun_' + str(z) + '/'
+        folder = '../spike_output/' + parent_dir + '/samerun_' + str(z) + '/'
         np.save(folder+filename_spikes+datetimestr+'-'+str(y)+pickle_ext, sameIN_spike_events, allow_pickle = True)
             
     #<3 sameIN_time_series = np.array(sameIN_time_series)

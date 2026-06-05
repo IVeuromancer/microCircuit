@@ -1,5 +1,5 @@
 from neuron import h
-from subnetwork_200619_no_axonal import Subnetwork_no_axonal
+from subnetwork_200619_no_inhib import Subnetwork_no_inhib
 import numpy as np
 import time
 import datetime
@@ -9,34 +9,34 @@ from distutils.dir_util import copy_tree
 
 def copyinputs(old_parent_dir):
     datetimestr = datetime.datetime.now().strftime("_%y%m%d")  
-    parent_dir = 'run' + datetimestr + '_sameopp_no_axonal'
-    old_dir = '../../spike_input/' + old_parent_dir
-    new_dir = '../../spike_input/' + parent_dir  
+    parent_dir = 'run' + datetimestr + '_sameopp_no_inhib'
+    old_dir = '../spike_input/' + old_parent_dir
+    new_dir = '../spike_input/' + parent_dir  
     copy_tree(old_dir, new_dir)
 
 def diffrun(z):    
 
     #datetimestr = datetime.datetime.now().strftime("_%y%m%d")  
     datetimestr = '_200914'
-    parent_dir = 'run' +datetimestr + '_sameopp_no_axonal' 
+    parent_dir = 'run' +datetimestr + '_sameopp_no_inhib' 
 
-    # path_diff = '../../spike_output/' + parent_dir 
+    # path_diff = '../spike_output/' + parent_dir 
     # if not os.path.exists(path_diff):
     #     os.mkdir(path_diff)
     #     print("Directory " , path_diff ,  " Created ")
 
     N=4
-    subnetwork = Subnetwork_no_axonal(0,N,100)
-    subnetwork2 = Subnetwork_no_axonal(9,N,100) #gidStart should be number of gids (3 for IN + 2 for TC)
+    subnetwork = Subnetwork_no_inhib(0,N,100)
+    subnetwork2 = Subnetwork_no_inhib(9,N,100) #gidStart should be number of gids (3 for IN + 2 for TC)
 
-    new_subnetwork1 = np.load('../../spike_input/'+parent_dir+'/'+'Br1/edited/subnetwork1_input' + '_' + str(z) + '.npy', allow_pickle = True)
-    new_subnetwork2 = np.load('../../spike_input/'+parent_dir+'/'+'Br1/edited/subnetwork2_input' + '_' + str(z) + '.npy', allow_pickle = True)
-    new2_subnetwork1 = np.load('../../spike_input/'+parent_dir+'/'+'Br2/edited/subnetwork1_input' + '_' + str(z) + '.npy', allow_pickle = True)
-    new2_subnetwork2 = np.load('../../spike_input/'+parent_dir+'/'+'Br2/edited/subnetwork2_input' + '_' + str(z) + '.npy', allow_pickle = True)
-    new3_subnetworkall = np.load('../../spike_input/'+parent_dir+'/'+'extra_input1/edited/subnetworkall_input' + '_' + str(z) + '.npy', allow_pickle = True)
-    new4_subnetworkall = np.load('../../spike_input/'+parent_dir+'/'+'extra_input2/edited/subnetworkall_input' + '_' + str(z) + '.npy', allow_pickle = True)
+    new_subnetwork1 = np.load('../spike_input/'+parent_dir+'/'+'Br1/edited/subnetwork1_input' + '_' + str(z) + '.npy', allow_pickle = True)
+    new_subnetwork2 = np.load('../spike_input/'+parent_dir+'/'+'Br1/edited/subnetwork2_input' + '_' + str(z) + '.npy', allow_pickle = True)
+    new2_subnetwork1 = np.load('../spike_input/'+parent_dir+'/'+'Br2/edited/subnetwork1_input' + '_' + str(z) + '.npy', allow_pickle = True)
+    new2_subnetwork2 = np.load('../spike_input/'+parent_dir+'/'+'Br2/edited/subnetwork2_input' + '_' + str(z) + '.npy', allow_pickle = True)
+    new3_subnetworkall = np.load('../spike_input/'+parent_dir+'/'+'extra_input1/edited/subnetworkall_input' + '_' + str(z) + '.npy', allow_pickle = True)
+    new4_subnetworkall = np.load('../spike_input/'+parent_dir+'/'+'extra_input2/edited/subnetworkall_input' + '_' + str(z) + '.npy', allow_pickle = True)
 
-    path_diff = '../../spike_output/' + parent_dir + '/diffrun_' + str(z) + '/'
+    path_diff = '../spike_output/' + parent_dir + '/diffrun_' + str(z) + '/'
     if not os.path.exists(path_diff):
         os.mkdir(path_diff)
         print("Directory " , path_diff ,  " Created ")
@@ -252,7 +252,7 @@ def diffrun(z):
         filename_spikes = 'diffIN_spike_events' 
         #<3 txt_ext = '.txt'
         pickle_ext = '.npy'
-        folder = '../../spike_output/' + parent_dir + '/diffrun_' + str(z) + '/'
+        folder = '../spike_output/' + parent_dir + '/diffrun_' + str(z) + '/'
         np.save(folder+filename_spikes+datetimestr+'-'+str(x)+pickle_ext, diffIN_spike_events, allow_pickle = True)
 
 #<3 diffIN_time_series = np.array(diffIN_time_series)
@@ -325,25 +325,25 @@ def diffrun(z):
 def samerun(z):     
     #datetimestr = datetime.datetime.now().strftime("_%y%m%d")  
     datetimestr = '_200914'
-    parent_dir = 'run' +datetimestr + '_sameopp_no_axonal' 
+    parent_dir = 'run' +datetimestr + '_sameopp_no_inhib' 
 
-    # path_same = '../../spike_output/' + parent_dir 
+    # path_same = '../spike_output/' + parent_dir 
     # if not os.path.exists(path_same):
     #     os.mkdir(path_same)
     #     print("Directory " , path_same ,  " Created ")
     
     N=4
-    subnetwork = Subnetwork_no_axonal(0,N,100)
-    subnetwork2 = Subnetwork_no_axonal(9,N,100) #gidStart should be number of gids (3 for IN + 2 for TC)    
+    subnetwork = Subnetwork_no_inhib(0,N,100)
+    subnetwork2 = Subnetwork_no_inhib(9,N,100) #gidStart should be number of gids (3 for IN + 2 for TC)    
     
-    new_subnetwork1 = np.load('../../spike_input/'+parent_dir+'/'+'Br1/edited/subnetwork1_input' + '_' + str(z) + '.npy', allow_pickle = True)
-    new_subnetwork2 = np.load('../../spike_input/'+parent_dir+'/'+'Br1/edited/subnetwork2_input' + '_' + str(z) + '.npy', allow_pickle = True)
-    new2_subnetwork1 = np.load('../../spike_input/'+parent_dir+'/'+'Br2/edited/subnetwork1_input' + '_' + str(z) + '.npy', allow_pickle = True)
-    new2_subnetwork2 = np.load('../../spike_input/'+parent_dir+'/'+'Br2/edited/subnetwork2_input' + '_' + str(z) + '.npy', allow_pickle = True)
-    new3_subnetworkall = np.load('../../spike_input/'+parent_dir+'/'+'extra_input1/edited/subnetworkall_input' + '_' + str(z) + '.npy', allow_pickle = True)
-    new4_subnetworkall = np.load('../../spike_input/'+parent_dir+'/'+'extra_input2/edited/subnetworkall_input' + '_' + str(z) + '.npy', allow_pickle = True)
+    new_subnetwork1 = np.load('../spike_input/'+parent_dir+'/'+'Br1/edited/subnetwork1_input' + '_' + str(z) + '.npy', allow_pickle = True)
+    new_subnetwork2 = np.load('../spike_input/'+parent_dir+'/'+'Br1/edited/subnetwork2_input' + '_' + str(z) + '.npy', allow_pickle = True)
+    new2_subnetwork1 = np.load('../spike_input/'+parent_dir+'/'+'Br2/edited/subnetwork1_input' + '_' + str(z) + '.npy', allow_pickle = True)
+    new2_subnetwork2 = np.load('../spike_input/'+parent_dir+'/'+'Br2/edited/subnetwork2_input' + '_' + str(z) + '.npy', allow_pickle = True)
+    new3_subnetworkall = np.load('../spike_input/'+parent_dir+'/'+'extra_input1/edited/subnetworkall_input' + '_' + str(z) + '.npy', allow_pickle = True)
+    new4_subnetworkall = np.load('../spike_input/'+parent_dir+'/'+'extra_input2/edited/subnetworkall_input' + '_' + str(z) + '.npy', allow_pickle = True)
 
-    path_same = '../../spike_output/' + parent_dir + '/samerun_' + str(z) + '/'
+    path_same = '../spike_output/' + parent_dir + '/samerun_' + str(z) + '/'
     if not os.path.exists(path_same):
         os.mkdir(path_same)
         print("Directory " , path_same ,  " Created ")
@@ -555,7 +555,7 @@ def samerun(z):
         filename_spikes = 'sameIN_spike_events' 
         #<3 txt_ext = '.txt'
         pickle_ext = '.npy'
-        folder = '../../spike_output/' + parent_dir + '/samerun_' + str(z) + '/'
+        folder = '../spike_output/' + parent_dir + '/samerun_' + str(z) + '/'
         np.save(folder+filename_spikes+datetimestr+'-'+str(y)+pickle_ext, sameIN_spike_events, allow_pickle = True)
             
     #<3 sameIN_time_series = np.array(sameIN_time_series)

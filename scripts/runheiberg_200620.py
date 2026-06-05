@@ -18,10 +18,10 @@ def runHeiberg(z):
     N=4
     subnetwork = Subnetwork(0,N,100)
 
-    new_subnetwork1 = np.load('../../spike_input/'+parent_dir+'/'+'Br1/subnetwork1_input' + '_' + str(z) + '.npy', allow_pickle = True)
-    new2_subnetwork1 = np.load('../../spike_input/'+parent_dir+'/'+'Br2/subnetwork1_input' + '_' + str(z) + '.npy', allow_pickle = True)
+    new_subnetwork1 = np.load('../spike_input/'+parent_dir+'/'+'Br1/subnetwork1_input' + '_' + str(z) + '.npy', allow_pickle = True)
+    new2_subnetwork1 = np.load('../spike_input/'+parent_dir+'/'+'Br2/subnetwork1_input' + '_' + str(z) + '.npy', allow_pickle = True)
 
-    path_diff = '../../spike_output/' + parent_dir + '/run_' + str(z) + '/'
+    path_diff = '../spike_output/' + parent_dir + '/run_' + str(z) + '/'
     if not os.path.exists(path_diff):
         os.mkdir(path_diff)
         print("Directory " , path_diff ,  " Created ")
@@ -63,7 +63,7 @@ def runHeiberg(z):
         datetimestr = datetime.datetime.now().strftime("_%Y_%m_%d_%H_%M_%S")
         filename_spikes = 'spike_events' 
         pickle_ext = '.npy'
-        folder = '../../spike_output/' + parent_dir + '/run_' + str(z) + '/'
+        folder = '../spike_output/' + parent_dir + '/run_' + str(z) + '/'
         np.save(folder+filename_spikes+datetimestr+'-'+str(x)+pickle_ext, diffIN_spike_events, allow_pickle = True)
     
     endtime = datetime.datetime.now().time()
@@ -82,10 +82,10 @@ def runHeiberg_notriadic(z):
     N=4
     subnetwork = Subnetwork_no_triadic(0,N,100)
 
-    new_subnetwork1 = np.load('../../spike_input/'+parent_dir+'/'+'Br1/subnetwork1_input' + '_' + str(z) + '.npy', allow_pickle = True)
-    new2_subnetwork1 = np.load('../../spike_input/'+parent_dir+'/'+'Br2/subnetwork1_input' + '_' + str(z) + '.npy', allow_pickle = True)
+    new_subnetwork1 = np.load('../spike_input/'+parent_dir+'/'+'Br1/subnetwork1_input' + '_' + str(z) + '.npy', allow_pickle = True)
+    new2_subnetwork1 = np.load('../spike_input/'+parent_dir+'/'+'Br2/subnetwork1_input' + '_' + str(z) + '.npy', allow_pickle = True)
 
-    path_diff = '../../spike_output/' + parent_dir + '/run_' + str(z) + '/'
+    path_diff = '../spike_output/' + parent_dir + '/run_' + str(z) + '/'
     if not os.path.exists(path_diff):
         os.mkdir(path_diff)
         print("Directory " , path_diff ,  " Created ")
@@ -127,7 +127,7 @@ def runHeiberg_notriadic(z):
         datetimestr = datetime.datetime.now().strftime("_%Y_%m_%d_%H_%M_%S")
         filename_spikes = 'spike_events' 
         pickle_ext = '.npy'
-        folder = '../../spike_output/' + parent_dir + '/run_' + str(z) + '/'
+        folder = '../spike_output/' + parent_dir + '/run_' + str(z) + '/'
         np.save(folder+filename_spikes+datetimestr+'-'+str(x)+pickle_ext, diffIN_spike_events, allow_pickle = True)
     
     endtime = datetime.datetime.now().time()
@@ -146,10 +146,10 @@ def runHeiberg_noaxonal(z):
     N=4
     subnetwork = Subnetwork_no_axonal(0,N,100)
 
-    new_subnetwork1 = np.load('../../spike_input/'+parent_dir+'/'+'Br1/subnetwork1_input' + '_' + str(z) + '.npy', allow_pickle = True)
-    new2_subnetwork1 = np.load('../../spike_input/'+parent_dir+'/'+'Br2/subnetwork1_input' + '_' + str(z) + '.npy', allow_pickle = True)
+    new_subnetwork1 = np.load('../spike_input/'+parent_dir+'/'+'Br1/subnetwork1_input' + '_' + str(z) + '.npy', allow_pickle = True)
+    new2_subnetwork1 = np.load('../spike_input/'+parent_dir+'/'+'Br2/subnetwork1_input' + '_' + str(z) + '.npy', allow_pickle = True)
 
-    path_diff = '../../spike_output/' + parent_dir + '/run_' + str(z) + '/'
+    path_diff = '../spike_output/' + parent_dir + '/run_' + str(z) + '/'
     if not os.path.exists(path_diff):
         os.mkdir(path_diff)
         print("Directory " , path_diff ,  " Created ")
@@ -191,7 +191,7 @@ def runHeiberg_noaxonal(z):
         datetimestr = datetime.datetime.now().strftime("_%Y_%m_%d_%H_%M_%S")
         filename_spikes = 'spike_events' 
         pickle_ext = '.npy'
-        folder = '../../spike_output/' + parent_dir + '/run_' + str(z) + '/'
+        folder = '../spike_output/' + parent_dir + '/run_' + str(z) + '/'
         np.save(folder+filename_spikes+datetimestr+'-'+str(x)+pickle_ext, diffIN_spike_events, allow_pickle = True)
     
     endtime = datetime.datetime.now().time()
@@ -210,10 +210,10 @@ def runHeiberg_noinhib(z):
     N=4
     subnetwork = Subnetwork_no_inhib(0,N,100)
 
-    new_subnetwork1 = np.load('../../spike_input/'+parent_dir+'/'+'Br1/subnetwork1_input' + '_' + str(z) + '.npy', allow_pickle = True)
-    new2_subnetwork1 = np.load('../../spike_input/'+parent_dir+'/'+'Br2/subnetwork1_input' + '_' + str(z) + '.npy', allow_pickle = True)
+    new_subnetwork1 = np.load('../spike_input/'+parent_dir+'/'+'Br1/subnetwork1_input' + '_' + str(z) + '.npy', allow_pickle = True)
+    new2_subnetwork1 = np.load('../spike_input/'+parent_dir+'/'+'Br2/subnetwork1_input' + '_' + str(z) + '.npy', allow_pickle = True)
 
-    path_diff = '../../spike_output/' + parent_dir + '/run_' + str(z) + '/'
+    path_diff = '../spike_output/' + parent_dir + '/run_' + str(z) + '/'
     if not os.path.exists(path_diff):
         os.mkdir(path_diff)
         print("Directory " , path_diff ,  " Created ")
@@ -255,7 +255,7 @@ def runHeiberg_noinhib(z):
         datetimestr = datetime.datetime.now().strftime("_%Y_%m_%d_%H_%M_%S")
         filename_spikes = 'spike_events' 
         pickle_ext = '.npy'
-        folder = '../../spike_output/' + parent_dir + '/run_' + str(z) + '/'
+        folder = '../spike_output/' + parent_dir + '/run_' + str(z) + '/'
         np.save(folder+filename_spikes+datetimestr+'-'+str(x)+pickle_ext, diffIN_spike_events, allow_pickle = True)
     
     endtime = datetime.datetime.now().time()

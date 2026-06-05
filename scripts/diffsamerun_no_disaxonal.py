@@ -1,30 +1,26 @@
 from neuron import h
 from subnetwork_200619 import Subnetwork
-import poisson_whisker
 import numpy as np
 import time
 import datetime
 import winsound
 import os
-import multiprocessing
-from multiprocessing import freeze_support, Pool
-import convert_inputs
-import diffsamerun_no_triadic
-import diffsamerun_no_axonal
-import diffsamerun_no_distriadic
-import diffsamerun_no_disaxonal
-import diffsamerun_no_inhib
-import diffsamerun_no_distriadic_no_disaxonal
-import diffsamerun_no_triadic_no_axonal
+from distutils.dir_util import copy_tree
 
+def copyinputs(old_parent_dir):
+    datetimestr = datetime.datetime.now().strftime("_%y%m%d")  
+    parent_dir = 'run' + datetimestr + '_sameopp_no_disaxonal'
+    old_dir = '../spike_input/' + old_parent_dir
+    new_dir = '../spike_input/' + parent_dir  
+    copy_tree(old_dir, new_dir)
 
-def diffrun(z):    
+def diffrun(z):  
 
-    #datetimestr = datetime.datetime.now().strftime("_%y%m%d")
-    datetimestr = '_200914b'
-    parent_dir = 'run' + datetimestr+'_sameopp'
+    #datetimestr = datetime.datetime.now().strftime("_%y%m%d")  
+    datetimestr = '_200914'
+    parent_dir = 'run' +datetimestr + '_sameopp_no_disaxonal'  
 
-    # path_diff = '../../spike_output/' + parent_dir 
+    # path_diff = '../spike_output/' + parent_dir 
     # if not os.path.exists(path_diff):
     #     os.mkdir(path_diff)
     #     print("Directory " , path_diff ,  " Created ")
@@ -33,14 +29,14 @@ def diffrun(z):
     subnetwork = Subnetwork(0,N,100)
     subnetwork2 = Subnetwork(9,N,100) #gidStart should be number of gids (3 for IN + 2 for TC)
 
-    new_subnetwork1 = np.load('../../spike_input/'+parent_dir+'/'+'Br1/edited/subnetwork1_input' + '_' + str(z) + '.npy', allow_pickle = True)
-    new_subnetwork2 = np.load('../../spike_input/'+parent_dir+'/'+'Br1/edited/subnetwork2_input' + '_' + str(z) + '.npy', allow_pickle = True)
-    new2_subnetwork1 = np.load('../../spike_input/'+parent_dir+'/'+'Br2/edited/subnetwork1_input' + '_' + str(z) + '.npy', allow_pickle = True)
-    new2_subnetwork2 = np.load('../../spike_input/'+parent_dir+'/'+'Br2/edited/subnetwork2_input' + '_' + str(z) + '.npy', allow_pickle = True)
-    new3_subnetworkall = np.load('../../spike_input/'+parent_dir+'/'+'extra_input1/edited/subnetworkall_input' + '_' + str(z) + '.npy', allow_pickle = True)
-    new4_subnetworkall = np.load('../../spike_input/'+parent_dir+'/'+'extra_input2/edited/subnetworkall_input' + '_' + str(z) + '.npy', allow_pickle = True)
+    new_subnetwork1 = np.load('../spike_input/'+parent_dir+'/'+'Br1/edited/subnetwork1_input' + '_' + str(z) + '.npy', allow_pickle = True)
+    new_subnetwork2 = np.load('../spike_input/'+parent_dir+'/'+'Br1/edited/subnetwork2_input' + '_' + str(z) + '.npy', allow_pickle = True)
+    new2_subnetwork1 = np.load('../spike_input/'+parent_dir+'/'+'Br2/edited/subnetwork1_input' + '_' + str(z) + '.npy', allow_pickle = True)
+    new2_subnetwork2 = np.load('../spike_input/'+parent_dir+'/'+'Br2/edited/subnetwork2_input' + '_' + str(z) + '.npy', allow_pickle = True)
+    new3_subnetworkall = np.load('../spike_input/'+parent_dir+'/'+'extra_input1/edited/subnetworkall_input' + '_' + str(z) + '.npy', allow_pickle = True)
+    new4_subnetworkall = np.load('../spike_input/'+parent_dir+'/'+'extra_input2/edited/subnetworkall_input' + '_' + str(z) + '.npy', allow_pickle = True)
 
-    path_diff = '../../spike_output/' + parent_dir + '/diffrun_' + str(z) + '/'
+    path_diff = '../spike_output/' + parent_dir + '/diffrun_' + str(z) + '/'
     if not os.path.exists(path_diff):
         os.mkdir(path_diff)
         print("Directory " , path_diff ,  " Created ")
@@ -74,21 +70,21 @@ def diffrun(z):
 
         # here is where I connect the two subnetworks with each other
         # connect two subnetworks by adding IN-IN axons and dendrites
-        syn_IN1axon_IN2 = h.Exp2Syn(subnetwork2.IN_1.model.dend[25](1))
-        syn_IN1axon_IN2.tau1 = 0.71
-        syn_IN1axon_IN2.tau2 = 4.18
-        syn_IN1axon_IN2.e = -80
-        nc_IN1axon_IN2 = h.NetCon(subnetwork.IN_1.model.soma[0](0.5)._ref_v, syn_IN1axon_IN2, sec=subnetwork.IN_1.model.soma[0])
-        nc_IN1axon_IN2.weight[0] = 0.005
-        nc_IN1axon_IN2.delay = 1
+        # syn_IN1axon_IN2 = h.Exp2Syn(subnetwork2.IN_1.model.dend[25](1))
+        # syn_IN1axon_IN2.tau1 = 0.71
+        # syn_IN1axon_IN2.tau2 = 4.18
+        # syn_IN1axon_IN2.e = -80
+        # nc_IN1axon_IN2 = h.NetCon(subnetwork.IN_1.model.soma[0](0.5)._ref_v, syn_IN1axon_IN2, sec=subnetwork.IN_1.model.soma[0])
+        # nc_IN1axon_IN2.weight[0] = 0.005
+        # nc_IN1axon_IN2.delay = 1
     
-        syn_IN2axon_IN1 = h.Exp2Syn(subnetwork.IN_1.model.dend[25](1))
-        syn_IN2axon_IN1.tau1 = 0.71
-        syn_IN2axon_IN1.tau2 = 4.18
-        syn_IN2axon_IN1.e = -80
-        nc_IN2axon_IN1 = h.NetCon(subnetwork2.IN_1.model.soma[0](0.5)._ref_v, syn_IN2axon_IN1, sec=subnetwork2.IN_1.model.soma[0])
-        nc_IN2axon_IN1.weight[0] = 0.005
-        nc_IN2axon_IN1.delay = 1
+        # syn_IN2axon_IN1 = h.Exp2Syn(subnetwork.IN_1.model.dend[25](1))
+        # syn_IN2axon_IN1.tau1 = 0.71
+        # syn_IN2axon_IN1.tau2 = 4.18
+        # syn_IN2axon_IN1.e = -80
+        # nc_IN2axon_IN1 = h.NetCon(subnetwork2.IN_1.model.soma[0](0.5)._ref_v, syn_IN2axon_IN1, sec=subnetwork2.IN_1.model.soma[0])
+        # nc_IN2axon_IN1.weight[0] = 0.005
+        # nc_IN2axon_IN1.delay = 1
     
         syn_IN1dend_IN2 = h.Exp2Syn(subnetwork2.IN_1.model.dend[25](1))
         syn_IN1dend_IN2.tau1 = 0.71
@@ -200,30 +196,30 @@ def diffrun(z):
         h.tstop = 1000
         h.init()
         h.run()
-        # diffvertstack = []
-        # diffvertstack = np.vstack((
-        # subnetwork.IN_1.soma_v,
-        # subnetwork.IN_1.dend_prox_v,
-        # subnetwork.IN_1.dend_dist_v,
-        # subnetwork.IN_1.dend_dist2_v,
-        # subnetwork.IN_1.dend_dist3_v,
-        # subnetwork.IN_1.dend_dist4_v,
-        # subnetwork.IN_1.dend_dist5_v,
-        # subnetwork.TCcells[0].soma_v,
-        # subnetwork.TCcells[1].soma_v,
-        # subnetwork.TCcells[2].soma_v,
-        # subnetwork.TCcells[3].soma_v,
-        # subnetwork2.IN_1.soma_v,
-        # subnetwork2.IN_1.dend_prox_v,
-        # subnetwork2.IN_1.dend_dist_v,
-        # subnetwork2.IN_1.dend_dist2_v,
-        # subnetwork2.IN_1.dend_dist3_v,
-        # subnetwork2.IN_1.dend_dist4_v,
-        # subnetwork2.IN_1.dend_dist5_v,
-        # subnetwork2.TCcells[0].soma_v,
-        # subnetwork2.TCcells[1].soma_v,
-        # subnetwork2.TCcells[2].soma_v,
-        # subnetwork2.TCcells[3].soma_v,))
+        #<3  diffvertstack = []
+        #<3  diffvertstack = np.vstack((
+        #<3  subnetwork.IN_1.soma_v,
+        #<3  subnetwork.IN_1.dend_prox_v,
+        #<3  subnetwork.IN_1.dend_dist_v,
+        #<3  subnetwork.IN_1.dend_dist2_v,
+        #<3  subnetwork.IN_1.dend_dist3_v,
+        #<3  subnetwork.IN_1.dend_dist4_v,
+        #<3  subnetwork.IN_1.dend_dist5_v,
+        #<3  subnetwork.TCcells[0].soma_v,
+        #<3  subnetwork.TCcells[1].soma_v,
+        #<3  subnetwork.TCcells[2].soma_v,
+        #<3  subnetwork.TCcells[3].soma_v,
+        #<3  subnetwork2.IN_1.soma_v,
+        #<3  subnetwork2.IN_1.dend_prox_v,
+        #<3  subnetwork2.IN_1.dend_dist_v,
+        #<3  subnetwork2.IN_1.dend_dist2_v,
+        #<3  subnetwork2.IN_1.dend_dist3_v,
+        #<3  subnetwork2.IN_1.dend_dist4_v,
+        #<3  subnetwork2.IN_1.dend_dist5_v,
+        #<3  subnetwork2.TCcells[0].soma_v,
+        #<3  subnetwork2.TCcells[1].soma_v,
+        #<3  subnetwork2.TCcells[2].soma_v,
+        #<3  subnetwork2.TCcells[3].soma_v,))
         diffvertstack2 = []
         diffvertstack2 = [
         np.array(subnetwork.IN_1.spike_times),
@@ -247,66 +243,30 @@ def diffrun(z):
         np.array(subnetwork2.TCcells[2].spike_times),
         np.array(subnetwork2.TCcells[3].spike_times)]
         
-        # diffIN_time_series.append(diffvertstack) #<3
-        # diffIN_spike_events.append(diffvertstack2)
-        # diffIN_spike_events = np.array(diffIN_spike_events)
+        #<3 diffIN_time_series.append(diffvertstack)
+        #<3 diffIN_spike_events.append(diffvertstack2)
+        #<3 diffIN_spike_events = np.array(diffIN_spike_events)
         diffIN_spike_events = np.array(diffvertstack2)
         datetimestr = datetime.datetime.now().strftime("_%Y_%m_%d_%H_%M_%S")
-        # filename_timeseries = 'diffIN_time_series' #<3
+        #<3 filename_timeseries = 'diffIN_time_series'
         filename_spikes = 'diffIN_spike_events' 
-        # txt_ext = '.txt' #<3
+        #<3 txt_ext = '.txt'
         pickle_ext = '.npy'
-        folder = '../../spike_output/' + parent_dir + '/diffrun_' + str(z) + '/'
+        folder = '../spike_output/' + parent_dir + '/diffrun_' + str(z) + '/'
         np.save(folder+filename_spikes+datetimestr+'-'+str(x)+pickle_ext, diffIN_spike_events, allow_pickle = True)
 
-
-        # del diffIN_spike_events
-        # del diffIN_time_series
-        # del diffvertstack2
-        # del filename_spikes
-        # del folder
-        # del nc_Br1toIN1
-        # del nc_Br1toIN2
-        # del nc_Br2toIN1
-        # del nc_Br2toIN2
-        # del nc_IN1axon_IN2
-        # del nc_IN1dend_IN2
-        # del nc_IN2axon_IN1
-        # del nc_IN2dend_IN1
-        # del nc2_Br1toIN2
-        # del nc2_Br1toIN1
-        # del nc2_Br2toIN1
-        # del nc2_Br2toIN2
-        # del ncsecond_Br1toIN2
-        # del ncsecond_Br2toIN1
-        # del new_subnetwork1
-        # del new_subnetwork2
-        # del new2_subnetwork1
-        # del new2_subnetwork2
-        # del pickle_ext
-        # del synBr1toIN1
-        # del synBr1toIN2
-        # del synBr2toIN1
-        # del synBr2toIN2
-        # del syn_IN1axon_IN2
-        # del syn_IN1dend_IN2
-        # del syn_IN2axon_IN1
-        # del syn_IN2dend_IN1
-        # del t
-
-
-    # diffIN_time_series = np.array(diffIN_time_series)
+#<3 diffIN_time_series = np.array(diffIN_time_series)
 
 #<3 print(diffIN_time_series.shape)
 #<3 print(diffIN_spike_events.shape)
 
 # Write the arrays to disk
 
-    # with open(folder+filename_timeseries+datetimestr+txt_ext, 'w') as outfile:
-    #     outfile.write('# Array shape: {0}\n'.format(diffIN_time_series.shape))
-    #     for data_slice in diffIN_time_series:
-    #         np.savetxt(outfile, data_slice, fmt='%-12.8f')
-    #         outfile.write('# New diameter\n')   
+#<3 with open(folder+filename_timeseries+datetimestr+txt_ext, 'w') as outfile:
+#<3     outfile.write('# Array shape: {0}\n'.format(diffIN_time_series.shape))
+#<3     for data_slice in diffIN_time_series:
+#<3         np.savetxt(outfile, data_slice, fmt='%-12.8f')
+#<3         outfile.write('# New diameter\n')   
         
  
 #<3 print(folder+filename_timeseries+datetimestr+txt_ext)
@@ -320,31 +280,54 @@ def diffrun(z):
     converted_time = str(conversion)
     # print(seconds_input)
     print(converted_time)
-
-    # del datetimestr
-    # del parent_dir
-    # del path_diff
-    # del start
-    # del starttime
     # del conversion
     # del converted_time
+    # del datetimestr
+    # del diffIN_spike_events
+    # del diffIN_time_series
+    # del diffvertstack2
     # del end
     # del endtime
+    # del filename_spikes
+    # del folder
+    # del nc_Br1toIN1
+    # del nc_Br1toIN2
+    # del nc_Br2toIN1
+    # del nc_Br2toIN2
+    # del nc_IN1axon_IN2
+    # del nc_IN1dend_IN2
+    # del nc_IN2axon_IN1
+    # del nc_IN2dend_IN1
+    # del ncsecond_Br1toIN2
+    # del new_subnetwork1
+    # del new_subnetwork2
+    # del new2_subnetwork1
+    # del new2_subnetwork2
+    # del path_diff
+    # del pickle_ext
     # del seconds_input
+    # del start
+    # del starttime
     # del subnetwork
     # del subnetwork2
-    # # del x
-    # del N
-
+    # del synBr1toIN1
+    # del synBr1toIN2
+    # del synBr2toIN1
+    # del synBr2toIN2
+    # del syn_IN1axon_IN2
+    # del syn_IN1dend_IN2
+    # del syn_IN2axon_IN1
+    # del syn_IN2dend_IN1
+    # del t
+    # del x
     return z
     
-def samerun(z):   
+def samerun(z):     
+    #datetimestr = datetime.datetime.now().strftime("_%y%m%d")  
+    datetimestr = '_200914'
+    parent_dir = 'run' +datetimestr + '_sameopp_no_disaxonal'  
 
-    #datetimestr = datetime.datetime.now().strftime("_%y%m%d")
-    datetimestr = '_200914b'
-    parent_dir = 'run' + datetimestr+'_sameopp'
-
-    # path_same = '../../spike_output/' + parent_dir 
+    # path_same = '../spike_output/' + parent_dir 
     # if not os.path.exists(path_same):
     #     os.mkdir(path_same)
     #     print("Directory " , path_same ,  " Created ")
@@ -353,14 +336,14 @@ def samerun(z):
     subnetwork = Subnetwork(0,N,100)
     subnetwork2 = Subnetwork(9,N,100) #gidStart should be number of gids (3 for IN + 2 for TC)    
     
-    new_subnetwork1 = np.load('../../spike_input/'+parent_dir+'/'+'Br1/edited/subnetwork1_input' + '_' + str(z) + '.npy', allow_pickle = True)
-    new_subnetwork2 = np.load('../../spike_input/'+parent_dir+'/'+'Br1/edited/subnetwork2_input' + '_' + str(z) + '.npy', allow_pickle = True)
-    new2_subnetwork1 = np.load('../../spike_input/'+parent_dir+'/'+'Br2/edited/subnetwork1_input' + '_' + str(z) + '.npy', allow_pickle = True)
-    new2_subnetwork2 = np.load('../../spike_input/'+parent_dir+'/'+'Br2/edited/subnetwork2_input' + '_' + str(z) + '.npy', allow_pickle = True)
-    new3_subnetworkall = np.load('../../spike_input/'+parent_dir+'/'+'extra_input1/edited/subnetworkall_input' + '_' + str(z) + '.npy', allow_pickle = True)
-    new4_subnetworkall = np.load('../../spike_input/'+parent_dir+'/'+'extra_input2/edited/subnetworkall_input' + '_' + str(z) + '.npy', allow_pickle = True)
+    new_subnetwork1 = np.load('../spike_input/'+parent_dir+'/'+'Br1/edited/subnetwork1_input' + '_' + str(z) + '.npy', allow_pickle = True)
+    new_subnetwork2 = np.load('../spike_input/'+parent_dir+'/'+'Br1/edited/subnetwork2_input' + '_' + str(z) + '.npy', allow_pickle = True)
+    new2_subnetwork1 = np.load('../spike_input/'+parent_dir+'/'+'Br2/edited/subnetwork1_input' + '_' + str(z) + '.npy', allow_pickle = True)
+    new2_subnetwork2 = np.load('../spike_input/'+parent_dir+'/'+'Br2/edited/subnetwork2_input' + '_' + str(z) + '.npy', allow_pickle = True)
+    new3_subnetworkall = np.load('../spike_input/'+parent_dir+'/'+'extra_input1/edited/subnetworkall_input' + '_' + str(z) + '.npy', allow_pickle = True)
+    new4_subnetworkall = np.load('../spike_input/'+parent_dir+'/'+'extra_input2/edited/subnetworkall_input' + '_' + str(z) + '.npy', allow_pickle = True)
 
-    path_same = '../../spike_output/' + parent_dir + '/samerun_' + str(z) + '/'
+    path_same = '../spike_output/' + parent_dir + '/samerun_' + str(z) + '/'
     if not os.path.exists(path_same):
         os.mkdir(path_same)
         print("Directory " , path_same ,  " Created ")
@@ -392,21 +375,21 @@ def samerun(z):
         subnetwork2._vecstim4.play(subnetwork2.train_vec4)
         # here is where I connect the two subnetworks with each other
         # connect two subnetworks by adding IN-IN axons and dendrites
-        syn_IN1axon_IN2 = h.Exp2Syn(subnetwork2.IN_1.model.dend[25](1))
-        syn_IN1axon_IN2.tau1 = 0.71
-        syn_IN1axon_IN2.tau2 = 4.18
-        syn_IN1axon_IN2.e = -80
-        nc_IN1axon_IN2 = h.NetCon(subnetwork.IN_1.model.soma[0](0.5)._ref_v, syn_IN1axon_IN2, sec=subnetwork.IN_1.model.soma[0])
-        nc_IN1axon_IN2.weight[0] = 0.005
-        nc_IN1axon_IN2.delay = 1
+        # syn_IN1axon_IN2 = h.Exp2Syn(subnetwork2.IN_1.model.dend[25](1))
+        # syn_IN1axon_IN2.tau1 = 0.71
+        # syn_IN1axon_IN2.tau2 = 4.18
+        # syn_IN1axon_IN2.e = -80
+        # nc_IN1axon_IN2 = h.NetCon(subnetwork.IN_1.model.soma[0](0.5)._ref_v, syn_IN1axon_IN2, sec=subnetwork.IN_1.model.soma[0])
+        # nc_IN1axon_IN2.weight[0] = 0.005
+        # nc_IN1axon_IN2.delay = 1
     
-        syn_IN2axon_IN1 = h.Exp2Syn(subnetwork.IN_1.model.dend[25](1))
-        syn_IN2axon_IN1.tau1 = 0.71
-        syn_IN2axon_IN1.tau2 = 4.18
-        syn_IN2axon_IN1.e = -80
-        nc_IN2axon_IN1 = h.NetCon(subnetwork2.IN_1.model.soma[0](0.5)._ref_v, syn_IN2axon_IN1, sec=subnetwork2.IN_1.model.soma[0])
-        nc_IN2axon_IN1.weight[0] = 0.005
-        nc_IN2axon_IN1.delay = 1
+        # syn_IN2axon_IN1 = h.Exp2Syn(subnetwork.IN_1.model.dend[25](1))
+        # syn_IN2axon_IN1.tau1 = 0.71
+        # syn_IN2axon_IN1.tau2 = 4.18
+        # syn_IN2axon_IN1.e = -80
+        # nc_IN2axon_IN1 = h.NetCon(subnetwork2.IN_1.model.soma[0](0.5)._ref_v, syn_IN2axon_IN1, sec=subnetwork2.IN_1.model.soma[0])
+        # nc_IN2axon_IN1.weight[0] = 0.005
+        # nc_IN2axon_IN1.delay = 1
     
         syn_IN1dend_IN2 = h.Exp2Syn(subnetwork2.IN_1.model.dend[25](1))
         syn_IN1dend_IN2.tau1 = 0.71
@@ -572,7 +555,7 @@ def samerun(z):
         filename_spikes = 'sameIN_spike_events' 
         #<3 txt_ext = '.txt'
         pickle_ext = '.npy'
-        folder = '../../spike_output/' + parent_dir + '/samerun_' + str(z) + '/'
+        folder = '../spike_output/' + parent_dir + '/samerun_' + str(z) + '/'
         np.save(folder+filename_spikes+datetimestr+'-'+str(y)+pickle_ext, sameIN_spike_events, allow_pickle = True)
             
     #<3 sameIN_time_series = np.array(sameIN_time_series)
@@ -605,9 +588,6 @@ def samerun(z):
     # del conversion
     # del converted_time
     # del datetimestr
-    # del sameIN_spike_events
-    # del sameIN_time_series
-    # del samevertstack2
     # del end
     # del endtime
     # del filename_spikes
@@ -620,18 +600,16 @@ def samerun(z):
     # del nc_IN1dend_IN2
     # del nc_IN2axon_IN1
     # del nc_IN2dend_IN1
-    # del nc2_Br1toIN2
-    # del nc2_Br1toIN1
-    # del nc2_Br2toIN1
-    # del nc2_Br2toIN2
-    # del ncsecond_Br1toIN2
-    # del ncsecond_Br2toIN1
+    # del ncsecond_Br1toIN1
     # del new_subnetwork1
     # del new_subnetwork2
     # del new2_subnetwork1
     # del new2_subnetwork2
     # del path_same
     # del pickle_ext
+    # del sameIN_spike_events
+    # del sameIN_time_series
+    # del samevertstack2
     # del seconds_input
     # del start
     # del starttime
@@ -646,142 +624,8 @@ def samerun(z):
     # del syn_IN2axon_IN1
     # del syn_IN2dend_IN1
     # del t
-    # del y
+    # del y 
     return z
-
-def makeInputs(z):
-    datetimestr = '_200914b'
-    # datetimestr = datetime.datetime.now().strftime("_%y%m%d")  
-    parent_dir = 'run' + datetimestr + '_sameopp'
-    # timenow = datetime.datetime.now().time()
-    # print('now reading: '+str(z) + '  ',timenow)
-
-    poisson_whisker.createSubnetworkInputs(z,parent_dir)
-
-    return z
-    
-if __name__ == '__main__':  
-    pool = multiprocessing.Pool(20)
-    z = [1,2,3,4,5,6,7,8,9,10]
-    # datetimestr = '_200914b'
-    # # datetimestr = datetime.datetime.now().strftime("_%y%m%d")  
-    # parent_dir = 'run' + datetimestr + '_sameopp'
-
-    # path_inputs = '../../spike_input/' + parent_dir  
-    # if not os.path.exists(path_inputs):
-    #     os.mkdir(path_inputs)
-    #     print("Directory " , path_inputs ,  " Created ")
-
-    # path_inputs = '../../spike_input/' + parent_dir + '/Br1/' 
-    # if not os.path.exists(path_inputs):
-    #     os.mkdir(path_inputs)
-    #     print("Directory " , path_inputs ,  " Created ")
-
-    # path_inputs = '../../spike_input/' + parent_dir + '/Br1/edited/' 
-    # if not os.path.exists(path_inputs):
-    #     os.mkdir(path_inputs)
-    #     print("Directory " , path_inputs ,  " Created ")
-
-    # path_inputs = '../../spike_input/' + parent_dir + '/Br2/' 
-    # if not os.path.exists(path_inputs):
-    #     os.mkdir(path_inputs)
-    #     print("Directory " , path_inputs ,  " Created ")
-
-    # path_inputs = '../../spike_input/' + parent_dir + '/Br2/edited' 
-    # if not os.path.exists(path_inputs):
-    #     os.mkdir(path_inputs)
-    #     print("Directory " , path_inputs ,  " Created ")
-
-    # path_inputs = '../../spike_input/' + parent_dir + '/extra_input1/' 
-    # if not os.path.exists(path_inputs):
-    #     os.mkdir(path_inputs)
-    #     print("Directory " , path_inputs ,  " Created ")
-
-    # path_inputs = '../../spike_input/' + parent_dir + '/extra_input1/edited' 
-    # if not os.path.exists(path_inputs):
-    #     os.mkdir(path_inputs)
-    #     print("Directory " , path_inputs ,  " Created ")
-
-    # path_inputs = '../../spike_input/' + parent_dir + '/extra_input2/' 
-    # if not os.path.exists(path_inputs):
-    #     os.mkdir(path_inputs)
-    #     print("Directory " , path_inputs ,  " Created ")
-
-    # path_inputs = '../../spike_input/' + parent_dir + '/extra_input2/edited' 
-    # if not os.path.exists(path_inputs):
-    #     os.mkdir(path_inputs)
-    #     print("Directory " , path_inputs ,  " Created ")
-
-
-    # result1 = pool.map(makeInputs,z)
-    # convert_inputs.convertinputs(parent_dir)
-    # diffsamerun_no_triadic.copyinputs(parent_dir)
-    # diffsamerun_no_axonal.copyinputs(parent_dir)
-    # diffsamerun_no_distriadic.copyinputs(parent_dir)
-    # diffsamerun_no_disaxonal.copyinputs(parent_dir)
-
-
-    # result2 = pool.map_async(diffrun,z)
-    # result3 = pool.map_async(samerun,z)
-    # print(result2.get())
-    # print(result3.get())
-    # time.sleep(20)
-
-    # for name in dir():
-    #     if not name.startswith('_'):
-    #         del globals()[name]
-
-    # import multiprocessing
-    # from multiprocessing import freeze_support, Pool
-
-    # pool = multiprocessing.Pool(20)
-    # z = [1,2,3,4,5,6,7,8,9,10]
-
-    # result4 = pool.map_async(diffsamerun_no_triadic.diffrun,z)
-    # result5 = pool.map_async(diffsamerun_no_triadic.samerun,z)
-    # print(result4.get())
-    # print(result5.get())
-
-    # result6 = pool.map_async(diffsamerun_no_axonal.diffrun,z)
-    # result7 = pool.map_async(diffsamerun_no_axonal.samerun,z)
-    # print(result6.get())
-    # print(result7.get())
-    # time.sleep(20)
-
-    result8 = pool.map_async(diffsamerun_no_distriadic_no_disaxonal.diffrun_distriad,z)
-    result9 = pool.map_async(diffsamerun_no_distriadic_no_disaxonal.diffrun_disaxon,z)
-    print(result8.get())
-    print(result9.get())
-    # time.sleep(20)
-
-    # result10 = pool.map_async(diffrun,z)
-    # result11 = pool.map_async(diffsamerun_no_triadic_no_axonal.diffrun_triad,z)
-    # result12 = pool.map_async(diffsamerun_no_triadic_no_axonal.diffrun_axon,z)
-    # print(result10.get())
-    # print(result11.get())
-    # print(result12.get())
-
-    # result8 = pool.map_async(diffsamerun_no_distriadic.diffrun,z)
-    # result9 = pool.map_async(diffsamerun_no_distriadic.samerun,z)
-    # print(result8.get())
-    # print(result9.get())
-    # time.sleep(20)
-
-    # result10 = pool.map_async(diffsamerun_no_disaxonal.diffrun,z)
-    # result11 = pool.map_async(diffsamerun_no_disaxonal.samerun,z)
-    # print(result10.get())
-    # print(result11.get())
-
-    # result12 = pool.map_async(diffsamerun_no_inhib.diffrun,z)
-    # result13 = pool.map_async(diffsamerun_no_inhib.samerun,z)
-    # print(result12.get())
-    # print(result13.get())
-
-    # freq = 440
-    # dur = 1000
-    # winsound.Beep(freq,dur)
-    
-    
 
 
 

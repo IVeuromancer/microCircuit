@@ -27,10 +27,10 @@ class Cell:
         # record spikes, soma/prox-dend from all cells
         # ._spike_detector is identified by ._gid
         self._spike_detector = h.NetCon(self.model.soma[0](0.5)._ref_v, None, sec=self.model.soma[0])
-        self._spike_detector.threshold = -15
+        self._spike_detector.threshold = -29
         self.spike_times = h.Vector()
         self._spike_detector.record(self.spike_times)
-        #<3 self.soma_v = h.Vector().record(self.model.soma[0](0.5)._ref_v)
+        # self.soma_v = h.Vector().record(self.model.soma[0](0.5)._ref_v) #<3
 
     def __repr__(self):
         return '{}[{}]'.format(self.name, self._gid)
@@ -59,8 +59,8 @@ class Cell:
 class IN(Cell):
     name = 'Interneuron'
     def _setup_cell(self):
-        h.load_file("../bAC_IN_legacy.hoc") 
-        morphology_dir = "../morphologies_IN_bAC"
+        h.load_file("../memodels/bAC_IN_legacy.hoc") 
+        morphology_dir = "../memodels/morphologies_IN_bAC"
         morphology_name = "dend-jy171222_A_idA_axon-jy171019_B_10x_resta_idB_-_Scale_x1.000_y0.975_z1.000_-_Clone_0.asc"
         self.model = h.bAC_IN_legacy(morphology_dir, morphology_name)
         
@@ -94,7 +94,7 @@ class IN(Cell):
         self.ncs4 = []
         self.ncs5 = []
         self.ncs6 = []
-        # records time series
+        # records time series  #<3
         # self.dend_prox_v = h.Vector().record(self.model.dend[0](0.5)._ref_v)
         # self.dend_prox2_v = h.Vector().record(self.model.dend[25](1)._ref_v)
         # self.dend_dist_v = h.Vector().record(self.model.dend[20](1)._ref_v)
@@ -125,10 +125,10 @@ class IN(Cell):
         self.syn_Brdist.e = 10
 
         # uncomment for Heiberg simulation
-        self.syn_Brdist2 = h.Exp2Syn(self.model.dend[85](1))
-        self.syn_Brdist2.tau1 = 0.36
-        self.syn_Brdist2.tau2 = 1.77
-        self.syn_Brdist2.e = 10
+        # self.syn_Brdist2 = h.Exp2Syn(self.model.dend[85](1))
+        # self.syn_Brdist2.tau1 = 0.36
+        # self.syn_Brdist2.tau2 = 1.77
+        # self.syn_Brdist2.e = 10
         
         self.syn_Brdist3 = h.Exp2Syn(self.model.dend[79](1))
         self.syn_Brdist3.tau1 = 0.36
@@ -164,14 +164,13 @@ class TC(Cell):
     name = 'TC'
     def _setup_cell(self):
         if (self._gid % 2) == 0:
-            h.load_file("../dAD_ltb_legacy.hoc")
-            morphology_dir = "../morphologies_TC_dAD_ltb"
+            h.load_file("../memodels/dAD_ltb_legacy.hoc")
+            morphology_dir = "../memodels/morphologies_TC_dAD_ltb"
             morphology_name = "dend-jy171002_B_idB_axon-AA0015_-_Scale_x1.000_y0.950_z1.000_-_Clone_2.asc"
             self.model = h.dAD_ltb_legacy(morphology_dir, morphology_name)
-
         else:
-            h.load_file("../dNAD_ltb_legacy.hoc")
-            morphology_dir = "../morphologies_TC_dNAD_ltb"
+            h.load_file("../memodels/dNAD_ltb_legacy.hoc")
+            morphology_dir = "../memodels/morphologies_TC_dNAD_ltb"
             morphology_name = "dend-jy171002_B_idB_axon-AA0049_-_Clone_6.asc"
             self.model = h.dNAD_ltb_legacy(morphology_dir, morphology_name)
             
@@ -202,7 +201,6 @@ class TC(Cell):
         self.stim.amp = 0.002
         self.stim_current = h.Vector()
         self.stim_current.record(self.stim._ref_i)
-        
         # self.stim = h.IClamp(self.model.soma[0](0.5))
         # self.stim.dur = 1000
         # self.stim.delay = 0

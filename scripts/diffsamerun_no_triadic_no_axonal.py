@@ -15,7 +15,7 @@ def diffrun_triad(z):
     datetimestr = '_200914b'
     parent_dir = 'run' +datetimestr + '_sameopp_no_triadic'
 
-    # path_diff = '../../spike_output/' + parent_dir 
+    # path_diff = '../spike_output/' + parent_dir 
     # if not os.path.exists(path_diff):
     #     os.mkdir(path_diff)
     #     print("Directory " , path_diff ,  " Created ")
@@ -24,14 +24,14 @@ def diffrun_triad(z):
     subnetwork = Subnetwork_no_triadic(0,N,100)
     subnetwork2 = Subnetwork_no_triadic(9,N,100) #gidStart should be number of gids (3 for IN + 2 for TC)
 
-    new_subnetwork1 = np.load('../../spike_input/'+parent_dir+'/'+'Br1/edited/subnetwork1_input' + '_' + str(z) + '.npy', allow_pickle = True)
-    new_subnetwork2 = np.load('../../spike_input/'+parent_dir+'/'+'Br1/edited/subnetwork2_input' + '_' + str(z) + '.npy', allow_pickle = True)
-    new2_subnetwork1 = np.load('../../spike_input/'+parent_dir+'/'+'Br2/edited/subnetwork1_input' + '_' + str(z) + '.npy', allow_pickle = True)
-    new2_subnetwork2 = np.load('../../spike_input/'+parent_dir+'/'+'Br2/edited/subnetwork2_input' + '_' + str(z) + '.npy', allow_pickle = True)
-    new3_subnetworkall = np.load('../../spike_input/'+parent_dir+'/'+'extra_input1/edited/subnetworkall_input' + '_' + str(z) + '.npy', allow_pickle = True)
-    new4_subnetworkall = np.load('../../spike_input/'+parent_dir+'/'+'extra_input2/edited/subnetworkall_input' + '_' + str(z) + '.npy', allow_pickle = True)
+    new_subnetwork1 = np.load('../spike_input/'+parent_dir+'/'+'Br1/edited/subnetwork1_input' + '_' + str(z) + '.npy', allow_pickle = True)
+    new_subnetwork2 = np.load('../spike_input/'+parent_dir+'/'+'Br1/edited/subnetwork2_input' + '_' + str(z) + '.npy', allow_pickle = True)
+    new2_subnetwork1 = np.load('../spike_input/'+parent_dir+'/'+'Br2/edited/subnetwork1_input' + '_' + str(z) + '.npy', allow_pickle = True)
+    new2_subnetwork2 = np.load('../spike_input/'+parent_dir+'/'+'Br2/edited/subnetwork2_input' + '_' + str(z) + '.npy', allow_pickle = True)
+    new3_subnetworkall = np.load('../spike_input/'+parent_dir+'/'+'extra_input1/edited/subnetworkall_input' + '_' + str(z) + '.npy', allow_pickle = True)
+    new4_subnetworkall = np.load('../spike_input/'+parent_dir+'/'+'extra_input2/edited/subnetworkall_input' + '_' + str(z) + '.npy', allow_pickle = True)
 
-    path_diff = '../../spike_output/' + parent_dir + '/diffrun_' + str(z) + '/'
+    path_diff = '../spike_output/' + parent_dir + '/diffrun_' + str(z) + '/'
     if not os.path.exists(path_diff):
         os.mkdir(path_diff)
         print("Directory " , path_diff ,  " Created ")
@@ -247,7 +247,7 @@ def diffrun_triad(z):
         filename_spikes = 'diffIN_spike_events' 
         #<3 txt_ext = '.txt'
         pickle_ext = '.npy'
-        folder = '../../spike_output/' + parent_dir + '/diffrun_' + str(z) + '/'
+        folder = '../spike_output/' + parent_dir + '/diffrun_' + str(z) + '/'
         np.save(folder+filename_spikes+datetimestr+'-'+str(x)+pickle_ext, diffIN_spike_events, allow_pickle = True)
 
 #<3 diffIN_time_series = np.array(diffIN_time_series)
@@ -323,7 +323,7 @@ def diffrun_axon(z):
     datetimestr = '_200914b'
     parent_dir = 'run' +datetimestr + '_sameopp_no_axonal' 
 
-    # path_diff = '../../spike_output/' + parent_dir 
+    # path_diff = '../spike_output/' + parent_dir 
     # if not os.path.exists(path_diff):
     #     os.mkdir(path_diff)
     #     print("Directory " , path_diff ,  " Created ")
@@ -332,14 +332,14 @@ def diffrun_axon(z):
     subnetwork = Subnetwork_no_axonal(0,N,100)
     subnetwork2 = Subnetwork_no_axonal(9,N,100) #gidStart should be number of gids (3 for IN + 2 for TC)
 
-    new_subnetwork1 = np.load('../../spike_input/'+parent_dir+'/'+'Br1/edited/subnetwork1_input' + '_' + str(z) + '.npy', allow_pickle = True)
-    new_subnetwork2 = np.load('../../spike_input/'+parent_dir+'/'+'Br1/edited/subnetwork2_input' + '_' + str(z) + '.npy', allow_pickle = True)
-    new2_subnetwork1 = np.load('../../spike_input/'+parent_dir+'/'+'Br2/edited/subnetwork1_input' + '_' + str(z) + '.npy', allow_pickle = True)
-    new2_subnetwork2 = np.load('../../spike_input/'+parent_dir+'/'+'Br2/edited/subnetwork2_input' + '_' + str(z) + '.npy', allow_pickle = True)
-    new3_subnetworkall = np.load('../../spike_input/'+parent_dir+'/'+'extra_input1/edited/subnetworkall_input' + '_' + str(z) + '.npy', allow_pickle = True)
-    new4_subnetworkall = np.load('../../spike_input/'+parent_dir+'/'+'extra_input2/edited/subnetworkall_input' + '_' + str(z) + '.npy', allow_pickle = True)
+    new_subnetwork1 = np.load('../spike_input/'+parent_dir+'/'+'Br1/edited/subnetwork1_input' + '_' + str(z) + '.npy', allow_pickle = True)
+    new_subnetwork2 = np.load('../spike_input/'+parent_dir+'/'+'Br1/edited/subnetwork2_input' + '_' + str(z) + '.npy', allow_pickle = True)
+    new2_subnetwork1 = np.load('../spike_input/'+parent_dir+'/'+'Br2/edited/subnetwork1_input' + '_' + str(z) + '.npy', allow_pickle = True)
+    new2_subnetwork2 = np.load('../spike_input/'+parent_dir+'/'+'Br2/edited/subnetwork2_input' + '_' + str(z) + '.npy', allow_pickle = True)
+    new3_subnetworkall = np.load('../spike_input/'+parent_dir+'/'+'extra_input1/edited/subnetworkall_input' + '_' + str(z) + '.npy', allow_pickle = True)
+    new4_subnetworkall = np.load('../spike_input/'+parent_dir+'/'+'extra_input2/edited/subnetworkall_input' + '_' + str(z) + '.npy', allow_pickle = True)
 
-    path_diff = '../../spike_output/' + parent_dir + '/diffrun_' + str(z) + '/'
+    path_diff = '../spike_output/' + parent_dir + '/diffrun_' + str(z) + '/'
     if not os.path.exists(path_diff):
         os.mkdir(path_diff)
         print("Directory " , path_diff ,  " Created ")
@@ -555,7 +555,7 @@ def diffrun_axon(z):
         filename_spikes = 'diffIN_spike_events' 
         #<3 txt_ext = '.txt'
         pickle_ext = '.npy'
-        folder = '../../spike_output/' + parent_dir + '/diffrun_' + str(z) + '/'
+        folder = '../spike_output/' + parent_dir + '/diffrun_' + str(z) + '/'
         np.save(folder+filename_spikes+datetimestr+'-'+str(x)+pickle_ext, diffIN_spike_events, allow_pickle = True)
 
 #<3 diffIN_time_series = np.array(diffIN_time_series)
